@@ -202,3 +202,594 @@ Processing by StaticPagesController#root as HTML
 Completed 200 OK in 2493ms (Views: 2486.8ms | ActiveRecord: 0.0ms)
 
 
+  [1m[35m (74.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (5.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20200727201601)
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (27.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "display_name" character varying NOT NULL, "icon_url" character varying, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200727201601_create_users.rb:3
+  [1m[35m (9.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20200727201601_create_users.rb:13
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/migrate/20200727201601_create_users.rb:14
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200727201601"]]
+  ↳ bin/rails:9
+  [1m[35m (9.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (4.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-07-27 21:34:39.888331"], ["updated_at", "2020-07-27 21:34:39.888331"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20200727201601)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (10.1ms)[0m  [1m[35mDROP INDEX  "index_users_on_session_token"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[35mDROP INDEX  "index_users_on_email"[0m
+  ↳ bin/rails:9
+  [1m[35m (6.8ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (7.2ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200727201601"]]
+  ↳ bin/rails:9
+  [1m[35m (28.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (3.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20200727201601)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (19.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "display_name" character varying NOT NULL, "icon_url" character varying, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200727201601_create_users.rb:3
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20200727201601_create_users.rb:13
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/migrate/20200727201601_create_users.rb:14
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200727201601"]]
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (4.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20200727201601)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[35mDROP INDEX  "index_users_on_session_token"[0m
+  ↳ bin/rails:9
+  [1m[35m (0.7ms)[0m  [1m[35mDROP INDEX  "index_users_on_email"[0m
+  ↳ bin/rails:9
+  [1m[35m (6.6ms)[0m  [1m[35mDROP TABLE "users"[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::SchemaMigration Destroy (3.9ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20200727201601"]]
+  ↳ bin/rails:9
+  [1m[35m (8.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateUsers (20200727201601)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (25.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "email" character varying NOT NULL, "display_name" character varying NOT NULL, "icon_url" character varying, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200727201601_create_users.rb:3
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  ↳ db/migrate/20200727201601_create_users.rb:13
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/migrate/20200727201601_create_users.rb:14
+  [1m[36mActiveRecord::SchemaMigration Create (8.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200727201601"]]
+  ↳ bin/rails:9
+  [1m[35m (11.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Nikki/.rbenv/versions/2.5.1/bin/annotate:23
+Started POST "/api/user" for ::1 at 2020-07-27 21:34:26 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki", "icon_url"=>"https://lh3.googleusercontent.com/lq8cpjtN3gErseV08nIJYLCOzGnYkFI4FK7pztzHv3ETUK94kzA3psdPusx_IPMlOL6V"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 17ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/api/user" for ::1 at 2020-07-27 21:35:30 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 7ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for ::1 at 2020-07-27 21:42:36 -0400
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Nikki/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 2573ms (Views: 2560.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 21:42:44 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki", "icon_url"=>"https://lh3.googleusercontent.com/lq8cpjtN3gErseV08nIJYLCOzGnYkFI4FK7pztzHv3ETUK94kzA3psdPusx_IPMlOL6V"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 1ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started POST "/api/user" for ::1 at 2020-07-27 21:46:53 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 4ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for ::1 at 2020-07-27 21:54:00 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 105ms (Views: 101.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 21:54:05 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for ::1 at 2020-07-27 21:55:57 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 303ms (Views: 267.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 21:56:04 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for ::1 at 2020-07-27 21:58:42 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 95ms (Views: 87.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 21:58:47 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki"}}
+  [1m[35m (5.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (11.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikki@nommly.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (3.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2CdzhytMDB7oYDusdUxyOA"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (1.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 401 Unauthorized in 559ms (Views: 1.7ms | ActiveRecord: 92.9ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 21:59:09 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki", "icon_url"=>"https://lh3.googleusercontent.com/lq8cpjtN3gErseV08nIJYLCOzGnYkFI4FK7pztzHv3ETUK94kzA3psdPusx_IPMlOL6V"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikki@nommly.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "2gfHKDtNyZ6IF4hBOiBAHA"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 401 Unauthorized in 329ms (Views: 0.4ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 22:01:05 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 82ms (Views: 76.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 22:01:09 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki", "icon_url"=>"https://lh3.googleusercontent.com/lq8cpjtN3gErseV08nIJYLCOzGnYkFI4FK7pztzHv3ETUK94kzA3psdPusx_IPMlOL6V"}}
+Unpermitted parameters: :display_name, :icon_url
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikki@nommly.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8LI-gENnE7K0SnUdRIBgOQ"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 401 Unauthorized in 370ms (Views: 0.4ms | ActiveRecord: 37.1ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 22:02:59 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 151ms (Views: 145.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 22:03:03 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki", "icon_url"=>"https://lh3.googleusercontent.com/lq8cpjtN3gErseV08nIJYLCOzGnYkFI4FK7pztzHv3ETUK94kzA3psdPusx_IPMlOL6V"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for ::1 at 2020-07-27 22:03:31 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 80ms (Views: 74.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 22:03:35 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki", "icon_url"=>"https://lh3.googleusercontent.com/lq8cpjtN3gErseV08nIJYLCOzGnYkFI4FK7pztzHv3ETUK94kzA3psdPusx_IPMlOL6V"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikki@nommly.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ZdmaC_Eojb9JdWdyFx07UQ"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 401 Unauthorized in 361ms (Views: 0.4ms | ActiveRecord: 19.2ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 22:12:21 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 89ms (Views: 84.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 22:12:49 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikki@nommly.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "uYVitxzzcs8XAIKPLFzyqw"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 401 Unauthorized in 435ms (Views: 4.0ms | ActiveRecord: 35.8ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 22:14:47 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki1", "password"=>"[FILTERED]", "display_name"=>"Nikki1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikki1"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OEDqZdSWb7_sgCNPZh1wog"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 401 Unauthorized in 386ms (Views: 2.1ms | ActiveRecord: 19.3ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 22:15:12 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 125ms (Views: 118.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 22:15:16 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki1", "password"=>"[FILTERED]", "display_name"=>"Nikki1"}}
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 3ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for ::1 at 2020-07-27 22:15:25 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 71ms (Views: 66.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 22:19:22 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki1", "password"=>"[FILTERED]", "display_name"=>"Nikki1"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikki1"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VE2Zr2_amXmn2JMGNYkTmg"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.7ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 401 Unauthorized in 493ms (Views: 11.9ms | ActiveRecord: 27.4ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 22:24:48 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 102ms (Views: 93.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 22:24:53 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki1", "password"=>"[FILTERED]", "display_name"=>"Nikki1"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikki1"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "qy8cBF_kqhUYO70cRsCttw"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.8ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 401 Unauthorized in 440ms (Views: 0.2ms | ActiveRecord: 40.2ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 22:25:33 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki2", "password"=>"[FILTERED]", "display_name"=>"Nikki"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikki2"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Z0Lca1hFsQbFEMraa6hyEQ"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (1.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 401 Unauthorized in 356ms (Views: 0.6ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 22:26:47 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 107ms (Views: 103.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 22:26:55 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki", "icon_url"=>"https://lh3.googleusercontent.com/lq8cpjtN3gErseV08nIJYLCOzGnYkFI4FK7pztzHv3ETUK94kzA3psdPusx_IPMlOL6V"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikki@nommly.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "ITTSMTKUmE_LQwOE5M6aNg"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 401 Unauthorized in 376ms (Views: 0.3ms | ActiveRecord: 13.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-27 22:33:26 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 100ms (Views: 94.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 22:33:30 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki", "icon_url"=>"https://lh3.googleusercontent.com/lq8cpjtN3gErseV08nIJYLCOzGnYkFI4FK7pztzHv3ETUK94kzA3psdPusx_IPMlOL6V"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikki@nommly.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "LyiaIE0p4bhQPx-vfi8yCw"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (3.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 422 Unprocessable Entity in 378ms (ActiveRecord: 36.2ms)
+
+
+
+ActiveRecord::RecordInvalid - Validation failed: Password is too short (minimum is 8 characters):
+  app/controllers/api/users_controller.rb:6:in `create'
+
+Started POST "/api/user" for ::1 at 2020-07-27 22:33:47 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki", "icon_url"=>"https://lh3.googleusercontent.com/lq8cpjtN3gErseV08nIJYLCOzGnYkFI4FK7pztzHv3ETUK94kzA3psdPusx_IPMlOL6V"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikki@nommly.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "4P2_WcPzzL1LOmOvv8smxQ"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Create (25.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "display_name", "icon_url", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "nikki@nommly.com"], ["display_name", "Nikki"], ["icon_url", "https://lh3.googleusercontent.com/lq8cpjtN3gErseV08nIJYLCOzGnYkFI4FK7pztzHv3ETUK94kzA3psdPusx_IPMlOL6V"], ["password_digest", "$2a$12$BiCR6vk1ID1LGM3Ywl9JyudPpZf.5NcA.eYC2eXZeck1D4.oQe3Ea"], ["session_token", "4P2_WcPzzL1LOmOvv8smxQ"], ["created_at", "2020-07-28 02:33:47.820514"], ["updated_at", "2020-07-28 02:33:47.820514"]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (3.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "nikki@nommly.com"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "nUMgBF21QgbSfh8e4AuQJQ"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Update (8.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "nUMgBF21QgbSfh8e4AuQJQ"], ["updated_at", "2020-07-28 02:33:47.892888"], ["id", 1]]
+  ↳ app/models/user.rb:42
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:42
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (909.8ms)
+Completed 500 Internal Server Error in 1403ms (ActiveRecord: 41.1ms)
+
+
+
+ActionView::Template::Error - undefined local variable or method `user' for #<#<Class:0x00007ffb6ea0c528>:0x00007ffb6ea06740>
+Did you mean?  @user:
+  app/views/api/users/show.json.jbuilder:1:in `view template'
+  app/controllers/api/users_controller.rb:8:in `create'
+
+Started GET "/" for ::1 at 2020-07-27 22:35:11 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 232ms (Views: 225.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/user" for ::1 at 2020-07-27 22:35:16 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki@nommly.com", "password"=>"[FILTERED]", "display_name"=>"Nikki", "icon_url"=>"https://lh3.googleusercontent.com/lq8cpjtN3gErseV08nIJYLCOzGnYkFI4FK7pztzHv3ETUK94kzA3psdPusx_IPMlOL6V"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (9.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikki@nommly.com"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (2.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "17pu1HjIT4vnBYdfNa1YIg"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/api/users_controller.rb:6
+Completed 422 Unprocessable Entity in 340ms (ActiveRecord: 11.7ms)
+
+
+
+ActiveRecord::RecordInvalid - Validation failed: Email has already been taken:
+  app/controllers/api/users_controller.rb:6:in `create'
+
+Started POST "/api/user" for ::1 at 2020-07-27 22:35:37 -0400
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"email"=>"nikki1", "password"=>"[FILTERED]", "display_name"=>"Nikki", "icon_url"=>"https://lh3.googleusercontent.com/lq8cpjtN3gErseV08nIJYLCOzGnYkFI4FK7pztzHv3ETUK94kzA3psdPusx_IPMlOL6V"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nikki1"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "bjH4OlpKZ33U8KfnwW8VhQ"], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[36mUser Create (9.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "display_name", "icon_url", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["email", "nikki1"], ["display_name", "Nikki"], ["icon_url", "https://lh3.googleusercontent.com/lq8cpjtN3gErseV08nIJYLCOzGnYkFI4FK7pztzHv3ETUK94kzA3psdPusx_IPMlOL6V"], ["password_digest", "$2a$12$bllH25B.DfQ2xBsDQLCMaOX8YvyM93xjcIkRDDIMQptIsocuVz1FS"], ["session_token", "bjH4OlpKZ33U8KfnwW8VhQ"], ["created_at", "2020-07-28 02:35:38.030385"], ["updated_at", "2020-07-28 02:35:38.030385"]]
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/users_controller.rb:6
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "nikki1"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "EuN8AnmIwiZQB9D86d0AWg"], ["id", 2], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Update (1.2ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "EuN8AnmIwiZQB9D86d0AWg"], ["updated_at", "2020-07-28 02:35:38.067152"], ["id", 2]]
+  ↳ app/models/user.rb:42
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:42
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/show.json.jbuilder (2.0ms)
+Completed 200 OK in 441ms (Views: 24.7ms | ActiveRecord: 19.5ms)
+
+
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
