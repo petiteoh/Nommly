@@ -1,12 +1,13 @@
 export const signup = (user) => {
     return $.ajax({
         method: "POST",
-        url: "/api/user",
+        url: "/api/users",
         data: { user },
     });
 };
 
 export const login = (user) => {
+    debugger
     return $.ajax({
         method: "POST",
         url: "/api/session",
@@ -20,3 +21,13 @@ export const logout = () => {
         url: "/api/session",
     });
 };
+
+export const fetchUserByEmail = (userEmail) => {
+    return $.ajax({
+        method: "GET",
+        url: `api/user?email=${userEmail}`,
+        data: { userEmail },
+    });
+}
+
+// get "api/user", to: "users#show"

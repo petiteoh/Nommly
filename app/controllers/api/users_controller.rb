@@ -1,5 +1,4 @@
 class Api::UsersController < ApplicationController
-    skip_before_action :verify_authenticity_token
 
     def create
         @user = User.new(user_params)
@@ -8,6 +7,16 @@ class Api::UsersController < ApplicationController
             render :show
         else
             render json: @user.errors.full_messages, status: 401
+        end
+    end
+
+    def show
+        @user = User.find_by(email: params[:email])
+        # debugger
+        if @user
+            render :show
+        else
+            render json: { email: params[:email] }, status: 404
         end
     end
 
