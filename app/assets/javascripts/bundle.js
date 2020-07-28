@@ -103,9 +103,11 @@ __webpack_require__.r(__webpack_exports__);
  // import configureStore from './store/store';
 
 document.addEventListener("DOMContentLoaded", function () {
-  // const store = configureStore();
-  // test
-  window.$ = $; // test
+  var store = configureStore(); // test
+
+  window.$ = $;
+  window.getState = store.getState;
+  window.dispatch = store.dispatch; // test
 
   var root = document.getElementById("root");
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Om Nom Nom..."), root);

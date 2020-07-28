@@ -793,3 +793,10 @@ Completed 200 OK in 441ms (Views: 24.7ms | ActiveRecord: 19.5ms)
 
 
   [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/" for ::1 at 2020-07-27 23:24:32 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 635ms (Views: 628.7ms | ActiveRecord: 0.0ms)
+
+
