@@ -27,11 +27,25 @@ class EmailForm extends React.Component {
         });
     };
 
+    renderErrors() {
+        return(
+            <ul>
+                {this.props.errors.map((error, i) => (
+                <li key={`error-${i}`}>
+                    {error}
+                </li>
+                ))}
+            </ul>
+        );
+    };
+
     render() {
         return (
             <div>
+                {this.props.navLink}
                 <h1>Connect with Email</h1>
                 <form onSubmit={this.handleSubmit}>
+                    {this.renderErrors()}
                     <label>Email Address
                         <input 
                             type="text"

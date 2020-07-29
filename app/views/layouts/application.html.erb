@@ -2,14 +2,29 @@
 <html>
   <head>
     <title>Nommly</title>
+    <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
+
+
   </head>
 
   <body>
+    <nav class="navbar">
+      <i class="fas fa-bars"></i>
+      <img
+        class="yummly-icon"
+        src="https://theme.zdassets.com/theme_assets/33710/aa8385e43b1db7d88a0f43b3ac30eb6f684c7326.png"
+        alt="Yummly Icon"
+      />
+      <i class="fas fa-search" style="color:#bdbdbd"></i>
+    </nav>    
+    <div class="placeholder"></div>
     <%= yield %>
   </body>
 </html>

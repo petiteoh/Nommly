@@ -21,37 +21,53 @@ class SignupPasswordForm extends React.Component {
       (response) => {
         this.props.history.push("/");
       }, 
-    //   (err) => {
-    //     console.log(err.responseJSON);
-    //   }
+      (err) => {
+        console.log(err.responseJSON);
+      }
     );
   }
 
+    renderErrors() {
+      return(
+        <ul>
+            {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+                {error}
+            </li>
+            ))}
+        </ul>
+      );
+    };
+
     render() {
         return (
-            <div>
-                <h1>Welcome to Nommly!</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Create Password:
-                        <input 
-                            type="password"
-                            value={this.state.password}
-                            onChange={this.update("password")}
-                        />
-                    </label>
-                    <br></br>
-                    <label>Display Name:
-                        <input 
-                            type="string"
-                            value={this.state.display_name}
-                            onChange={this.update("display_name")}
-                        />
-                    </label>
-                    <br></br>
-                    <button type="submit">Sign Up</button>
-                </form>
-            </div>
-        )
+          <div >
+            {this.props.navLink}
+            <h1>Welcome to Nommly!</h1>
+            <form onSubmit={this.handleSubmit}>
+              {this.renderErrors()}
+              <label>
+                Create Password:
+                <input
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.update("password")}
+                />
+              </label>
+              <br></br>
+              <label>
+                Display Name:
+                <input
+                  type="string"
+                  value={this.state.display_name}
+                  onChange={this.update("display_name")}
+                />
+              </label>
+              <br></br>
+              <button type="submit">Sign Up</button>
+            </form>
+          </div>
+        );
     };
 };
 

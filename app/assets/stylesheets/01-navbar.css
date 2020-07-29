@@ -1,61 +1,39 @@
-.signup-login-btn {
-    /* display: none; */
-    /* height: 50px; */
-}
-
-.navbar {
-    /* background: url(https://theme.zdassets.com/theme_assets/33710/aa8385e43b1db7d88a0f43b3ac30eb6f684c7326.png);
-    background-repeat: no-repeat; */
-    width: auto;
+/* .signup-login-btn {
+    display: none;
     height: 50px;
-    background-color: indianred;
-}
-
-.hamburger-icon {
-  position: relative;
-  padding-left: 50px;
-}
-/* .hamburger-icon:before {
-  content: "";
-  position: absolute;
-  left: 18px;
-  top: 18px;
-  bottom: 18px;
-  width: 18px;
-  height: 0.10em;
-  background: #bababa;
-  box-shadow: 
-    0 0.7em 0 0 #bababa,
-    0 0.7em 0 0 #bababa;
 } */
 
-.hamburger-icon:before {
-  content: "";
-  position: absolute;
-  left: 18px;
-  top: 0em;
-  bottom: 0em;
-  width: 1.5em;
-  background: linear-gradient(
-    to bottom, 
-    #bababa, #bababa 10%, 
-    transparent 20%, transparent 40%, 
-    #bababa 40%, #bababa 60%, 
-    transparent 60%, transparent 80%, 
-    #bababa 80%, #bababa 100%
-  );
+.navbar {
+    /* display: flex;
+    width: auto;
+    height: 50px;
+    background-color: white; */
+  /* display:flex; */
+  /* justify-content: flex-start; */
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
 }
+
+/* .fas fa-bars {
+
+} */
 
 .yummly-icon {
-    height: 50px;
+    height: 23px;
+    margin-right: 550px;
 }
 
-.search-icon {
+.fas fa-search {
     height: 40px
 }
 
-.demo-login {
-    position: absolute;
-    height: 500px;
+.placeholder {
+    /* position: relative; */
+    width: auto;
+    height: 80px;
     background-color: #3a9691;
 }

@@ -13,6 +13,7 @@ const Greeting = ({ currentUser, logout }) => {
     } else {
         return (
             <div className="logout">
+                <h1>{currentUser.display_name}'s Personalized Feed</h1>
                 <a href="#" onClick={logout}>Log Out</a>
             </div>
         )
