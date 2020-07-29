@@ -369,7 +369,7 @@ var Nav = function Nav(_ref) {
     }, "You are logged in as yourself! Browse around to discover our cool features!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
       className: "banner-logout-btn",
       onClick: logout
-    }, "Demo Log Out")));
+    }, "Log Out")));
   } else {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
       className: "navbar"

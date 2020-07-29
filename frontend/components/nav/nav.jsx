@@ -56,7 +56,7 @@ const Nav = ({ currentUser, currentUserId, login, logout }) => {
             </p>
           </span>
           <a className="banner-logout-btn" onClick={logout}>
-            Demo Log Out
+            Log Out
           </a>
         </div>
       </section>
