@@ -24,43 +24,30 @@ const receiveUserByEmail = (userEmail) => ({
     userEmail,
 })
 
+export const login = (user) => (dispatch) => {
+    return APIUtil.login(user).then((user) => {
+        return dispatch(receiveCurrentUser(user)
+    )}, (err) => {
+        return dispatch(receiveErrors(err.responseJSON))
+    }); 
+};
 
-// export const login = (user) => (dispatch) => (
-    //     APIUtil.login(user).then((currentUser) => dispatch(receiveCurrentUser(currentUser)), 
-    //     (err) => dispatch(receiveErrors(err.responseJSON))
-    // ));
-    
-    export const login = (user) => (dispatch) => {
-        debugger
-        return APIUtil.login(user).then((user) => {
-            debugger
-            return dispatch(receiveCurrentUser(user))
-        }, (err) => {
-            debugger
-            return dispatch(receiveErrors(err.responseJSON))
-        }) 
-    }
-
-    export const signup = (user) => (dispatch) => {
-        debugger
-        return APIUtil.signup(user).then((user) => {
-            return dispatch(receiveCurrentUser(user) 
-        )}, (err) => {
-            debugger
-            return dispatch(receiveErrors(err.responseJSON)
-        )}
-    )};
+export const signup = (user) => (dispatch) => {
+    return APIUtil.signup(user).then((user) => {
+        return dispatch(receiveCurrentUser(user) 
+    )}, (err) => {
+        return dispatch(receiveErrors(err.responseJSON))
+    });
+};
 
 export const logout = () => (dispatch) =>
-  APIUtil.logout().then(() => dispatch(logoutCurrentUser())
+    APIUtil.logout().then(() => dispatch(logoutCurrentUser())
 );
 
 export const fetchUserByEmail = (userEmail) => (dispatch) => {
-    return APIUtil.fetchUserByEmail(userEmail).then(
-      (user) => {
-        return dispatch(receiveUserByEmail(user.email));
-      }, (response) => {
+    return APIUtil.fetchUserByEmail(userEmail).then((user) => {
+        return dispatch(receiveUserByEmail(user.email)
+    )}, (response) => {
         return dispatch(receiveUserByEmail(response.responseJSON.email));
-      }
-    );
+    });
 };

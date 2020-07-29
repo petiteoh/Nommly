@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { login } from "../../actions/session_actions"
+import { login, logout } from "../../actions/session_actions"
 import Nav from "./nav";
 
 const mSTP = (state) => {
@@ -11,8 +11,8 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
-    login: (user) =>
-      dispatch(login({ email: "demo@demo.com", password: 11111111 })),
+    login: (user) => dispatch(login({ email: "demo@demo.com", password: 11111111 })),
+    logout: () => dispatch(logout())
   };
 };
 

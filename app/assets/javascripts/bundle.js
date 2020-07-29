@@ -135,31 +135,22 @@ var receiveUserByEmail = function receiveUserByEmail(userEmail) {
     type: RECEIVE_USER_BY_EMAIL,
     userEmail: userEmail
   };
-}; // export const login = (user) => (dispatch) => (
-//     APIUtil.login(user).then((currentUser) => dispatch(receiveCurrentUser(currentUser)), 
-//     (err) => dispatch(receiveErrors(err.responseJSON))
-// ));
-
+};
 
 var login = function login(user) {
   return function (dispatch) {
-    debugger;
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["login"](user).then(function (user) {
-      debugger;
       return dispatch(receiveCurrentUser(user));
     }, function (err) {
-      debugger;
       return dispatch(receiveErrors(err.responseJSON));
     });
   };
 };
 var signup = function signup(user) {
   return function (dispatch) {
-    debugger;
     return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["signup"](user).then(function (user) {
       return dispatch(receiveCurrentUser(user));
     }, function (err) {
-      debugger;
       return dispatch(receiveErrors(err.responseJSON));
     });
   };
@@ -325,7 +316,8 @@ __webpack_require__.r(__webpack_exports__);
 var Nav = function Nav(_ref) {
   var currentUser = _ref.currentUser,
       currentUserId = _ref.currentUserId,
-      login = _ref.login;
+      login = _ref.login,
+      logout = _ref.logout;
 
   if (currentUserId === 9) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -339,8 +331,17 @@ var Nav = function Nav(_ref) {
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "right-icons"
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "placeholder"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "You are now logged in as a Demo User")));
+      className: "banner-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "banner-msg-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "banner-msg"
+    }, "Welcome to Nommly!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "banner-msg-sml"
+    }, "You are now logged in as a Demo User. Should you want to curate your feed, log out to create a new account!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      className: "banner-logout-btn",
+      onClick: logout
+    }, "Demo Log Out")));
   } else if (currentUser) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
       className: "navbar"
@@ -353,8 +354,17 @@ var Nav = function Nav(_ref) {
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "right-icons"
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "placeholder"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "You are logged in as yourself!")));
+      className: "banner-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "banner-msg-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "banner-msg"
+    }, "Welcome to Nommly!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "banner-msg-sml"
+    }, "You are logged in as yourself! Browse around to discover our cool features!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      className: "banner-logout-btn",
+      onClick: logout
+    }, "Demo Log Out")));
   } else {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
       className: "navbar"
@@ -367,8 +377,15 @@ var Nav = function Nav(_ref) {
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "right-icons"
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "placeholder"
-    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Welcome to Nommly! Feel free to login as a Demo User!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "banner-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "banner-msg-container"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "banner-msg"
+    }, "Welcome to Nommly!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      className: "banner-msg-sml"
+    }, "Feel free to log in as a demo user or access/create your own account with personalized features!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      className: "demo-login-btn",
       onClick: login
     }, "Demo Login")));
   }
@@ -408,6 +425,9 @@ var mDTP = function mDTP(dispatch) {
         email: "demo@demo.com",
         password: 11111111
       }));
+    },
+    logout: function logout() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["logout"])());
     }
   };
 };
@@ -441,9 +461,7 @@ var Root = function Root(_ref) {
   var store = _ref.store;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_redux__WEBPACK_IMPORTED_MODULE_1__["Provider"], {
     store: store
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
-    "bar-icon": ["fas", "code"]
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_app__WEBPACK_IMPORTED_MODULE_3__["default"], null))));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["HashRouter"], null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_app__WEBPACK_IMPORTED_MODULE_3__["default"], null)));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Root);

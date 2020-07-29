@@ -38,9 +38,54 @@
     height: 40px
 }
 
-.placeholder {
+.banner-container {
     /* position: relative; */
     width: auto;
     height: 80px;
     background-color: #3a9691;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner-msg-container {
+    margin-right: 35px;
+}
+
+.banner-msg {
+    font-family: europa-boldregular, sans-serif;
+    color: white;
+    font-weight: 550;
+    font-size: 18px;
+    margin-bottom: 9px;
+}
+
+.banner-msg-sml {
+    font-family: europa-regularregular, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: white;
+}
+
+.banner-logout-btn, .demo-login-btn {
+    background-color: #fff;
+    color: #4a4a4a;
+    line-height: 40px;
+    letter-spacing: 0;
+    display: inline-block;
+    outline: none;
+    border: none;
+    border-radius: 3em;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: capitalize;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    transition: all 200ms ease;
+    font-family: europa-boldregular, sans-serif;
+    font-weight: 550;
+    width: 135px;
 }

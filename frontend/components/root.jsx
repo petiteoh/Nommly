@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Root = ({ store }) => (
   <Provider store={store}>
     <HashRouter>
-      <FontAwesomeIcon bar-icon={["fas", "code"]}>
+      {/* <FontAwesomeIcon bar-icon={["fas", "code"]}> */}
         <App />
-      </FontAwesomeIcon>
+      {/* </FontAwesomeIcon> */}
     </HashRouter>
   </Provider>
 );
