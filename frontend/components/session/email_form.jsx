@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { login } from "../../util/session_api_util";
 
 class EmailForm extends React.Component {
     constructor(props) {
@@ -32,6 +30,7 @@ class EmailForm extends React.Component {
     render() {
         return (
             <div>
+                <h1>Connect with Email</h1>
                 <form onSubmit={this.handleSubmit}>
                     <label>Email Address
                         <input 

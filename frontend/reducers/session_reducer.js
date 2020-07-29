@@ -19,7 +19,7 @@ const sessionReducer = (oldState = _nullUser, action) => {
       return _nullUser;
     case RECEIVE_USER_BY_EMAIL:
         debugger
-        return { id: null, email: action.userEmail }
+        return { id: null, email: action.userEmail };
     default:
       return oldState;
   };

@@ -1,14 +1,10 @@
 import { connect } from "react-redux";
-// import { withRouter } from "react-router-dom";
 import { fetchUserByEmail } from "../../actions/session_actions";
 import EmailForm from "./email_form";
 
-// const mSTP = (state) => {
-//   debugger;
-//   return {
-//     {}
-//   };
-// };
+const mSTP = (state) => {
+
+};
 
 const mDTP = (dispatch) => {
   // debugger;

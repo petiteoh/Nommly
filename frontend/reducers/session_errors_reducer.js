@@ -10,7 +10,7 @@ const sessionErrorsReducer = (oldState = {}, action) => {
             return [];
         default:
             return oldState;
-    };
-};
+    }
+}
 
 export default sessionErrorsReducer;

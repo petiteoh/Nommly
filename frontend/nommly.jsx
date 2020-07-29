@@ -9,7 +9,19 @@ import Root from "./components/root"
 // test
 
 document.addEventListener("DOMContentLoaded", () => {
-    const store = configureStore();
+    let store;
+    if (window.currentUser) {
+        const preloadedState = {
+            entities: {
+            users: { [window.currentUser.id]: window.currentUser },
+        },
+            session: { id: window.currentUser.id },
+        };
+    store = configureStore(preloadedState);
+        delete window.currentUser;
+    } else {
+        store = configureStore();
+    };
 
     // test
         window.$ = $;
@@ -21,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.APIlogout = APIUtil.logout;
         window.getState = store.getState;
         window.dispatch = store.dispatch;
-        // test
+    // test
 
     const root = document.getElementById("root");
     ReactDOM.render(<Root store={store} />, root);

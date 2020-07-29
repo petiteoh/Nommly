@@ -1,47 +1,49 @@
 import React from "react";
-import { login } from "../../util/session_api_util";
-
-
 
 class LoginPasswordForm extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = { email: this.props.email, password: "" }
+        this.state = { email: this.props.email, password: "" };
+        this.handleSubmit = this.handleSubmit.bind(this);
+    };
+
+    update(field) {
+        return e => this.setState({
+            [field]: e.currentTarget.value
+        });
+    };
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.login(this.state).then((response) => {
+            this.props.history.push("/")
+        }, (err) => {
+            console.log(err.responseJSON)
+            
+        });
     }
 
     render() {
-        const { email } = this.props;
-        debugger
         return (
-            <div>{email}</div>
+            <div>
+                <h1>Welcome Back!</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <label>Password
+                        <input 
+                            type="password"
+                            value={this.state.password}
+                            onChange={this.update("password")}
+                        />
+                    </label>
+                    <button type="submit">Login</button>
+                </form>
+            </div>
         )
     };
 };
 
 //make a request to create a new session
-
-// = ({ existingUser }) => {
-
-//     if (//this.props.email) {
-//         return (
-//             <div>
-//                 <h1>Welcome back!</h1>
-//                 Find matching password
-//             </div>
-
-//             //Link to the homepage chain a .then that has 
-//             // inside of the callback of the .then... call this.props.history.push("/")
-//         );
-//     } else {
-//         return (
-//             <div>
-//                 <h1>Sign Up!</h1>
-//                 Create new user
-//             </div>
-//         )
-//     };
-// };
 
 
 export default LoginPasswordForm;
