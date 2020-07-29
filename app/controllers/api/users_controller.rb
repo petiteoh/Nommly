@@ -13,7 +13,6 @@ class Api::UsersController < ApplicationController
 
     def show
         @user = User.find_by(email: params[:email])
-        # debugger
         if @user
             render :show
         else

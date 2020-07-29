@@ -16,12 +16,9 @@ class EmailForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
         this.props.fetchUserByEmail(this.state.email).then((response) => {
-            debugger
             this.props.history.push("/login-password")
         }, (err) => {
-            debugger
             console.log(err.responseJSON)
             this.props.history.push("/signup-password")
         });

@@ -18,13 +18,20 @@
   margin-right: 15px;
 }
 
-/* .fas fa-bars {
+.left-icons {
+  width: 150px;
+  display: flex;
+  align-items: center;
+  
+}
 
-} */
+.bar-icon {
+
+}
 
 .yummly-icon {
     height: 23px;
-    margin-right: 550px;
+    padding-left: 15px;
 }
 
 .fas fa-search {

@@ -14,7 +14,10 @@ const mSTP = (state) => {
 
 const mDTP = (dispatch) => {
   return {
-    login: user => dispatch(login(user))
+    login: user => {
+      debugger
+      dispatch(login(user))
+    }
   };
 };
 

@@ -4,15 +4,18 @@ import GreetingContainer from "./greeting/greeting_container";
 import EmailFormContainer from "./session/email_form_container";
 import LoginPasswordFormContainer from "./session/login_password_form_container";
 import SignupPasswordFormContainer from "./session/signup_password_form_container"
+// import NavContainer from "./nav/nav_container"
+import NavContainer from "./nav/nav_container"
+
+import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
 const App = () => (
   <div>
-    
-    {/* <GreetingContainer /> */}
+    <NavContainer />
     <Route exact path="/" component={GreetingContainer} />
     <Route path="/email" component={EmailFormContainer} />
-    <Route path="/login-password" component={LoginPasswordFormContainer} />
-    <Route path="/signup-password" component={SignupPasswordFormContainer} />
+    <AuthRoute path="/login-password" component={LoginPasswordFormContainer} />
+    <AuthRoute path="/signup-password" component={SignupPasswordFormContainer} />
   </div>
 );
 

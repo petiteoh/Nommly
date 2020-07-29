@@ -35,13 +35,21 @@ const receiveUserByEmail = (userEmail) => ({
         return APIUtil.login(user).then((user) => {
             debugger
             return dispatch(receiveCurrentUser(user))
-        });
+        }, (err) => {
+            debugger
+            return dispatch(receiveErrors(err.responseJSON))
+        }) 
     }
 
-    export const signup = (user) => (dispatch) => (
-        APIUtil.signup(user).then((user) => dispatch(receiveCurrentUser(user)), 
-        // (err) => dispatch(receiveErrors(err.responseJSON))
-    ));
+    export const signup = (user) => (dispatch) => {
+        debugger
+        return APIUtil.signup(user).then((user) => {
+            return dispatch(receiveCurrentUser(user) 
+        )}, (err) => {
+            debugger
+            return dispatch(receiveErrors(err.responseJSON)
+        )}
+    )};
 
 export const logout = () => (dispatch) =>
   APIUtil.logout().then(() => dispatch(logoutCurrentUser())
@@ -52,7 +60,6 @@ export const fetchUserByEmail = (userEmail) => (dispatch) => {
       (user) => {
         return dispatch(receiveUserByEmail(user.email));
       }, (response) => {
-          debugger
         return dispatch(receiveUserByEmail(response.responseJSON.email));
       }
     );
