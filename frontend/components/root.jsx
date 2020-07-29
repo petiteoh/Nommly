@@ -2,14 +2,11 @@ import React from "react";
 import { Provider } from "react-redux";
 import { HashRouter } from "react-router-dom";
 import App from "./app"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Root = ({ store }) => (
   <Provider store={store}>
     <HashRouter>
-      {/* <FontAwesomeIcon bar-icon={["fas", "code"]}> */}
         <App />
-      {/* </FontAwesomeIcon> */}
     </HashRouter>
   </Provider>
 );

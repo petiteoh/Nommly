@@ -4,7 +4,6 @@ import GreetingContainer from "./greeting/greeting_container";
 import EmailFormContainer from "./session/email_form_container";
 import LoginPasswordFormContainer from "./session/login_password_form_container";
 import SignupPasswordFormContainer from "./session/signup_password_form_container"
-// import NavContainer from "./nav/nav_container"
 import NavContainer from "./nav/nav_container"
 
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
