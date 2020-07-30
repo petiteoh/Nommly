@@ -7882,3 +7882,283 @@ Processing by Api::SessionsController#create as JSON
 Completed 200 OK in 514ms (Views: 58.6ms | ActiveRecord: 19.4ms)
 
 
+Started GET "/" for ::1 at 2020-07-29 18:55:03 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oLUNabLvUPuMQ2tANpjwwQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered api/users/_user.json.jbuilder (17.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (120.2ms)
+Completed 200 OK in 3511ms (Views: 3468.6ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:11:14 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (5.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oLUNabLvUPuMQ2tANpjwwQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered api/users/_user.json.jbuilder (8.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (119.7ms)
+Completed 200 OK in 1626ms (Views: 1598.8ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:11:33 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oLUNabLvUPuMQ2tANpjwwQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered api/users/_user.json.jbuilder (11.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (113.9ms)
+Completed 200 OK in 786ms (Views: 773.5ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:12:02 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oLUNabLvUPuMQ2tANpjwwQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  Rendered api/users/_user.json.jbuilder (1.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (25.2ms)
+Completed 200 OK in 649ms (Views: 640.4ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/api/session" for ::1 at 2020-07-29 21:12:14 -0400
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "oLUNabLvUPuMQ2tANpjwwQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (2.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (4.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "demo@demo.com"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "SPFqxBBD_VMmg2Ar4ceDfg"], ["id", 9], ["LIMIT", 1]]
+  ↳ app/models/user.rb:42
+  [1m[36mUser Update (21.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "SPFqxBBD_VMmg2Ar4ceDfg"], ["updated_at", "2020-07-30 01:12:14.978300"], ["id", 9]]
+  ↳ app/models/user.rb:42
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:42
+  Rendering api/users/show.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+  Rendered api/users/show.json.jbuilder (6.3ms)
+Completed 200 OK in 151ms (Views: 24.5ms | ActiveRecord: 32.1ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:12:45 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 497ms (Views: 478.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:14:15 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 828ms (Views: 820.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:14:47 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 217ms (Views: 211.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:15:18 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 432ms (Views: 424.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:15:54 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 758ms (Views: 745.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:16:35 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (12.6ms)
+Completed 200 OK in 273ms (Views: 263.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:19:02 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 250ms (Views: 242.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:20:23 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 245ms (Views: 235.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:22:53 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 326ms (Views: 315.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:23:10 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 334ms (Views: 329.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:24:01 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 187ms (Views: 181.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:24:32 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 237ms (Views: 232.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:25:02 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 853ms (Views: 837.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:25:31 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 217ms (Views: 211.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:26:00 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 135ms (Views: 128.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:26:02 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 78ms (Views: 66.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:27:18 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 222ms (Views: 212.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:27:26 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 154ms (Views: 151.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 21:28:07 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 113ms (Views: 108.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2020-07-29 22:50:28 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (33.4ms)
+Completed 200 OK in 348ms (Views: 332.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/user?email=&userEmail=" for ::1 at 2020-07-29 22:51:06 -0400
+Processing by Api::UsersController#show as JSON
+  Parameters: {"email"=>"", "userEmail"=>""}
+  [1m[36mUser Load (11.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", ""], ["LIMIT", 1]]
+  ↳ app/controllers/api/users_controller.rb:15
+Completed 404 Not Found in 75ms (Views: 3.6ms | ActiveRecord: 13.0ms)
+
+
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (7.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateCuisines (20200730025836)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (107.9ms)[0m  [1m[35mCREATE TABLE "cuisines" ("id" bigserial primary key, "cuisine" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200730025836_create_cuisines.rb:3
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_cuisines_on_cuisine" ON "cuisines"  ("cuisine")[0m
+  ↳ db/migrate/20200730025836_create_cuisines.rb:9
+  [1m[36mActiveRecord::SchemaMigration Create (1.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200730025836"]]
+  ↳ bin/rails:9
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateCourses (20200730025903)
+  [1m[35m (12.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (27.4ms)[0m  [1m[35mCREATE TABLE "courses" ("id" bigserial primary key, "course" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200730025903_create_courses.rb:3
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_courses_on_course" ON "courses"  ("course")[0m
+  ↳ db/migrate/20200730025903_create_courses.rb:9
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200730025903"]]
+  ↳ bin/rails:9
+  [1m[35m (21.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (2.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateIngredients (20200730030721)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (18.3ms)[0m  [1m[35mCREATE TABLE "ingredients" ("id" bigserial primary key, "ingredient" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200730030721_create_ingredients.rb:3
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_ingredients_on_ingredient" ON "ingredients"  ("ingredient")[0m
+  ↳ db/migrate/20200730030721_create_ingredients.rb:9
+  [1m[36mActiveRecord::SchemaMigration Create (1.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200730030721"]]
+  ↳ bin/rails:9
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+Migrating to CreateRecipeIngredients (20200730030730)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (10.6ms)[0m  [1m[35mCREATE TABLE "recipe_ingredients" ("id" bigserial primary key, "recipe_id" integer NOT NULL, "ingredient_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20200730030730_create_recipe_ingredients.rb:3
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_recipe_ingredients_on_recipe_id_and_ingredient_id" ON "recipe_ingredients"  ("recipe_id", "ingredient_id")[0m
+  ↳ db/migrate/20200730030730_create_recipe_ingredients.rb:10
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200730030730"]]
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (3.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(4446389113599283305)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9

@@ -2,20 +2,26 @@
     display: none;
     height: 50px;
 } */
+.nav{
+    /* position: fixed;
+    z-index: 100;
+    width: 100px; */
+    
+    /* top: 0; */
+}
 
 .navbar {
-    /* display: flex;
-    width: auto;
+    /* position: fixed; */
+    /* left: 100px; */
+    /* z-index: 100; */
+    /* top: 0; */
     height: 50px;
-    background-color: white; */
-  /* display:flex; */
-  /* justify-content: flex-start; */
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: 15px;
-  margin-right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 15px;
+    /* color: red; */
 }
 
 .left-icons {
@@ -35,17 +41,19 @@
 }
 
 .fas fa-bars {
-    height: 40px
+    height: 40px;
+    color: #f8f8f8;
 }
 
 .banner-container {
     /* position: relative; */
-    width: auto;
+    /* width: auto; */
     height: 80px;
     background-color: #3a9691;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* position: fixed */
 }
 
 .banner-msg-container {

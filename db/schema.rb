@@ -10,10 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_29_154733) do
+ActiveRecord::Schema.define(version: 2020_07_30_030730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "courses", force: :cascade do |t|
+    t.string "course", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course"], name: "index_courses_on_course", unique: true
+  end
+
+  create_table "cuisines", force: :cascade do |t|
+    t.string "cuisine", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cuisine"], name: "index_cuisines_on_cuisine", unique: true
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "ingredient", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredient"], name: "index_ingredients_on_ingredient", unique: true
+  end
+
+  create_table "recipe_ingredients", force: :cascade do |t|
+    t.integer "recipe_id", null: false
+    t.integer "ingredient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["recipe_id", "ingredient_id"], name: "index_recipe_ingredients_on_recipe_id_and_ingredient_id", unique: true
+  end
 
   create_table "recipes", force: :cascade do |t|
     t.string "title", null: false

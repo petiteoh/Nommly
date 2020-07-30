@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Nav = ({ currentUser, currentUserId, login, logout }) => {
   if (currentUserId === 9) {
     return (
-      <section>
+      <section className="nav">
         <nav className="navbar">
           <div className="left-icons">
             <i className="fas fa-bars"></i>
@@ -15,7 +15,6 @@ const Nav = ({ currentUser, currentUserId, login, logout }) => {
             />
           </div>
           <div className="right-icons">
-
           </div>
         </nav>
         <div className="banner-container">
@@ -34,7 +33,7 @@ const Nav = ({ currentUser, currentUserId, login, logout }) => {
     );
   } else if (currentUser) {
     return (
-      <section>
+      <section className="nav">
         <nav className="navbar">
           <div className="left-icons">
             <i class="fas fa-bars"></i>
@@ -63,7 +62,7 @@ const Nav = ({ currentUser, currentUserId, login, logout }) => {
     );
   } else {
     return (
-      <section>
+      <section className="nav">
         <nav className="navbar">
           <div className="left-icons">
             <i class="fas fa-bars"></i>
