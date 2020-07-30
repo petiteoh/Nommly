@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create]
     get "/user", to: "users#show"
     resource :session, only: [:create, :destroy, :show]
+    resources :recipes, only: [:index, :show]
   end
 
   root to: "static_pages#root"

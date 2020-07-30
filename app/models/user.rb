@@ -13,7 +13,7 @@
 #
 class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true
-    # validates :display_name, presence: true
+    validates :display_name, presence: true
     validates :password_digest, presence: true
     validates :session_token, presence: true, uniqueness: true 
     validates :password, length: { minimum: 8 }, allow_nil: true

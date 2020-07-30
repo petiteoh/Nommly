@@ -12,6 +12,7 @@ const App = () => (
   <div>
     <NavContainer />
     <Route exact path="/" component={GreetingContainer} />
+    {/* <Route exact path="/" component={RecipeIndexContainer} /> */}
     <Route path="/email" component={EmailFormContainer} />
     <AuthRoute path="/login-password" component={LoginPasswordFormContainer} />
     <AuthRoute path="/signup-password" component={SignupPasswordFormContainer} />

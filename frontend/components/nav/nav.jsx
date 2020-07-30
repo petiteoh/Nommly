@@ -1,10 +1,14 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Nav = ({ currentUser, currentUserId, login, logout }) => {
-  if (currentUserId === 9) {
+class Nav extends React.Component {
+
+  render() {
+    const { currentUser, currentUserId, login, logout } = this.props;
+
+    if (currentUserId === 9) {
     return (
-      <section className="nav">
+      <section id="nav">
         <nav className="navbar">
           <div className="left-icons">
             <i className="fas fa-bars"></i>
@@ -88,7 +92,7 @@ const Nav = ({ currentUser, currentUserId, login, logout }) => {
         </div>
       </section>
     );
-  }
-};
+  };
+}};
 
 export default Nav;

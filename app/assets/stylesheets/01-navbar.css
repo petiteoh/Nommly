@@ -1,27 +1,16 @@
-/* .signup-login-btn {
-    display: none;
-    height: 50px;
-} */
 .nav{
-    /* position: fixed;
+    position: fixed;
+    width: 100%;
     z-index: 100;
-    width: 100px; */
-    
-    /* top: 0; */
 }
 
 .navbar {
-    /* position: fixed; */
-    /* left: 100px; */
-    /* z-index: 100; */
-    /* top: 0; */
     height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-left: 15px;
     margin-right: 15px;
-    /* color: red; */
 }
 
 .left-icons {
@@ -46,14 +35,11 @@
 }
 
 .banner-container {
-    /* position: relative; */
-    /* width: auto; */
     height: 80px;
     background-color: #3a9691;
     display: flex;
     justify-content: center;
     align-items: center;
-    /* position: fixed */
 }
 
 .banner-msg-container {
@@ -97,3 +83,18 @@
     font-weight: 500;
     width: 135px;
 }
+
+/* .nav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+} */
