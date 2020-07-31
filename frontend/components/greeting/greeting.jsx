@@ -11,9 +11,14 @@ const Greeting = ({ currentUser, logout }) => {
               <span></span>
             </div>
             <ul>
-              <a className="signup-login-btn">
-                <Link to="/email">Sign Up / Log In</Link>
-              </a>
+              <li>
+                <Link className="signup-login-btn" to="/email">
+                  Sign Up / Log In
+                </Link>
+              </li>
+              <li></li>
+              <li></li>
+              <li></li>
             </ul>
           </div>
         );

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const mSTP = (state) => {
   return {
     errors: state.errors.session,
-    navLink: <Link to="/">Close</Link>,
+    navLink: <Link className="email-form-close-link" to="/">Close & use Nommly</Link>,
   }
 };
 

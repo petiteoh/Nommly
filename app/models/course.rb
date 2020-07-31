@@ -10,5 +10,5 @@
 class Course < ApplicationRecord
     validates :course, presence: true, uniqueness: true
 
-    has_many :courses
+    has_many :recipes
 end

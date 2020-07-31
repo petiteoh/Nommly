@@ -40,7 +40,7 @@ class Nav extends React.Component {
       <section className="nav">
         <nav className="navbar">
           <div className="left-icons">
-            <i class="fas fa-bars"></i>
+            <i className="fas fa-bars"></i>
             <img
               className="yummly-icon"
               src="https://theme.zdassets.com/theme_assets/33710/aa8385e43b1db7d88a0f43b3ac30eb6f684c7326.png"
@@ -69,7 +69,7 @@ class Nav extends React.Component {
       <section className="nav">
         <nav className="navbar">
           <div className="left-icons">
-            <i class="fas fa-bars"></i>
+            <i className="fas fa-bars"></i>
             <img
               className="yummly-icon"
               src="https://theme.zdassets.com/theme_assets/33710/aa8385e43b1db7d88a0f43b3ac30eb6f684c7326.png"

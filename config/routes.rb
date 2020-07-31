@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get "/user", to: "users#show"
     resource :session, only: [:create, :destroy, :show]
     resources :recipes, only: [:index, :show]
+    resources :courses, only: [:show]
   end
 
   root to: "static_pages#root"

@@ -9,7 +9,7 @@ const usersReducer = (oldState = {}, action) => {
         });
     default:
         return oldState;
-  }
+  };
 };
 
 export default usersReducer;

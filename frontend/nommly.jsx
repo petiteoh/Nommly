@@ -6,6 +6,8 @@ import Root from "./components/root"
 // test
     import * as APIUtil from "./util/session_api_util"
     import { login, logout, fetchUserByEmail } from "./actions/session_actions"
+    import { selectRecipes, selectRecipeIngredients, selectRecipeIngredient } from "./reducers/selectors_reducer";
+    import { fetchRecipes, fetchRecipe } from "./actions/recipe_actions"
 // test
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -33,6 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
         window.APIlogout = APIUtil.logout;
         window.getState = store.getState;
         window.dispatch = store.dispatch;
+        window.fetchRecipes = fetchRecipes
+        window.fetchRecipe = fetchRecipe
+        window.selectRecipes = selectRecipes;
+        window.selectRecipeIngredients = selectRecipeIngredients;
+        window.selectRecipeIngredient = selectRecipeIngredient;
+        
     // test
 
     const root = document.getElementById("root");
