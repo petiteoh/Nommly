@@ -9,11 +9,13 @@ class RecipeShow extends React.Component {
     render() {
         const { recipe, ingredients } = this.props;
         if (!recipe) return null;
-        // const ingredientLis = ingredients.map ((ingredient) => {
-        //     return (
-        //         <li key={ingredient.id} className="ingredient">{ingredient}</li>
-        //     )
-        // });
+        const ingredientLis = ingredients.map ((ingredient) => {
+            return (
+                <li key={ingredient.id} className="ingredient">{ingredient.ingredient}</li>
+            )
+        });
+
+        const ingredientCount = ingredients.length;
 
         return (
             <div className="recipe-page-container">
@@ -21,7 +23,9 @@ class RecipeShow extends React.Component {
                     <li>{recipe.title}</li>
                     <li>{recipe.totalTime}</li>
                     <li>{recipe.calories}</li>
-                    <a href="{recipe.directions}">Directions</a>
+                    <li>{ingredientCount}</li>
+                    <li>{recipe.imageUrl}</li>
+                    <a href="{recipe.directions}">Read Directions</a>
                 </section>
                 <section className="description-container">
                     <h3>Description</h3>
@@ -30,7 +34,7 @@ class RecipeShow extends React.Component {
                 </section>
                 <section className="ingredients-container">
                     <h3>Ingredients</h3>
-                    {/* {ingredientLis} */}
+                    {ingredientLis}
                 </section>
             </div>
         )

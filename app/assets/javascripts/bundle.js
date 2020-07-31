@@ -259,7 +259,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_nav_container__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "app"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_nav_nav_container__WEBPACK_IMPORTED_MODULE_6__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/",
     component: _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -732,25 +734,27 @@ var RecipeShow = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           recipe = _this$props.recipe,
           ingredients = _this$props.ingredients;
-      if (!recipe) return null; // const ingredientLis = ingredients.map ((ingredient) => {
-      //     return (
-      //         <li key={ingredient.id} className="ingredient">{ingredient}</li>
-      //     )
-      // });
-
+      if (!recipe) return null;
+      var ingredientLis = ingredients.map(function (ingredient) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: ingredient.id,
+          className: "ingredient"
+        }, ingredient.ingredient);
+      });
+      var ingredientCount = ingredients.length;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recipe-page-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "recipe-details"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, recipe.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, recipe.totalTime), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, recipe.calories), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, recipe.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, recipe.totalTime), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, recipe.calories), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, ingredientCount), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, recipe.imageUrl), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "{recipe.directions}"
-      }, "Directions")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+      }, "Read Directions")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "description-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, recipe.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: recipe.directions
       }, "Directions")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
         className: "ingredients-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Ingredients")));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, "Ingredients"), ingredientLis));
     }
   }]);
 
@@ -880,7 +884,8 @@ var EmailForm = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this, props);
     _this.state = {
-      email: ""
+      email: "",
+      errors: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -901,13 +906,29 @@ var EmailForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
-      this.props.fetchUserByEmail(this.state.email).then(function (response) {
-        _this3.props.history.push("/login-password");
-      }, function (err) {
-        console.log(err.responseJSON);
 
-        _this3.props.history.push("/signup-password");
-      });
+      if (this.isValidEmail(this.state.email)) {
+        this.props.fetchUserByEmail(this.state.email).then(function (response) {
+          _this3.props.history.push("/login-password");
+        }, function (err) {
+          console.log(err.responseJSON);
+
+          _this3.props.history.push("/signup-password");
+        });
+      } else {
+        this.setState({
+          errors: "PLEASE ENTER A VALID EMAIL ADDRESS."
+        });
+      }
+    }
+  }, {
+    key: "isValidEmail",
+    value: function isValidEmail(input) {
+      if (input.length < 4) {
+        return false;
+      } else {
+        return true;
+      }
     }
   }, {
     key: "renderErrors",
@@ -954,7 +975,7 @@ var EmailForm = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: this.state.email,
         onChange: this.update("email")
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "email-form-button",
         type: "submit"
       }, "Next")), this.props.navLink);

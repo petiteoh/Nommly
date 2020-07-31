@@ -1,0 +1,16 @@
+/* .recipe-index-container {
+    display: inline-block;
+}
+
+.recipe-container {
+    display: inline-block;
+} */
+
+/* .signup-login-sidebar .recipe-index-container {
+    display: inline-block;
+
+} */
+
+.app {
+    display: flex;
+}

@@ -10,22 +10,24 @@ User.destroy_all
 Cuisine.destroy_all
 Course.destroy_all
 Recipe.destroy_all
+Ingredient.destroy_all
+RecipeIngredient.destroy_all
 
 demoUser = User.create(email: "demo@demo.com", password: 11111111, display_name: "Demo User")
 
-cuisine1 = Cuisine.create(cuisine: "American")
+cuisine1 = Cuisine.create!(cuisine: "American")
 cuisine2 = Cuisine.create(cuisine: "Malaysian")
 cuisine3 = Cuisine.create(cuisine: "Indian")
 cuisine4 = Cuisine.create(cuisine: "Mexican")
 cuisine5 = Cuisine.create(cuisine: "Italian")
 
-course1 = Course.create(course: "Soup")
+course1 = Course.create!(course: "Soup")
 course2 = Course.create(course: "Appetizer")
 course3 = Course.create(course: "Salad")
 course4 = Course.create(course: "Main")
 course5 = Course.create(course: "Dessert")
 
-r1 = Recipe.create(
+r1 = Recipe.create!(
     creator: "NOMMLY",
     title: "Pretzels",
     description: "30 minute soft pretzels",
@@ -146,7 +148,7 @@ r10 = Recipe.create(
 )
 
 # pretzel recipe ingredients
-i1 = Ingredient.create(ingredient: "1 and 1/2 cups (360ml) warm water (lukewarm, no need to take temperature)")
+i1 = Ingredient.create!(ingredient: "1 and 1/2 cups (360ml) warm water (lukewarm, no need to take temperature)")
 i2 = Ingredient.create(ingredient: "1 packet active dry or instant yeast (2 and 1/4 teaspoons)")
 i3 = Ingredient.create(ingredient: "1 teaspoon salt")
 i4 = Ingredient.create(ingredient: "1 Tablespoon (8g) granulated sugar")
@@ -158,7 +160,7 @@ i7 = Ingredient.create(ingredient: "coarse sea salt, for sprinkling")
 i8 = Ingredient.create(ingredient: "2 cloves Garlic, raw")
 i9 = Ingredient.create(ingredient: "⅓ cup Basil, fresh")
 
-ri1 = RecipeIngredient.create(recipe_id: r1.id, ingredient_id: i1.id)
+ri1 = RecipeIngredient.create!(recipe_id: r1.id, ingredient_id: i1.id)
 ri2 = RecipeIngredient.create(recipe_id: r1.id, ingredient_id: i2.id)
 ri3 = RecipeIngredient.create(recipe_id: r1.id, ingredient_id: i3.id)
 ri4 = RecipeIngredient.create(recipe_id: r1.id, ingredient_id: i4.id)

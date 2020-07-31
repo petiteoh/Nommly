@@ -4,7 +4,8 @@ class EmailForm extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = { email: "" }
+        this.state = { email: "", errors: "" }
+        
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
@@ -16,12 +17,25 @@ class EmailForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.props.fetchUserByEmail(this.state.email).then((response) => {
-            this.props.history.push("/login-password")
-        }, (err) => {
-            console.log(err.responseJSON)
-            this.props.history.push("/signup-password")
-        });
+
+        if (this.isValidEmail(this.state.email)) {
+          this.props.fetchUserByEmail(this.state.email).then((response) => {
+              this.props.history.push("/login-password")
+          }, (err) => {
+              console.log(err.responseJSON)
+              this.props.history.push("/signup-password")
+          });
+        } else {
+          this.setState({errors: "PLEASE ENTER A VALID EMAIL ADDRESS."})
+        }
+    };
+
+    isValidEmail(input) {
+      if (input.length < 4) {
+        return false;
+      } else {
+        return true;
+      }     
     };
 
     renderErrors() {
@@ -72,6 +86,7 @@ class EmailForm extends React.Component {
                   onChange={this.update("email")}
                 />
               </label>
+              <p>{this.state.errors}</p>
               <button className="email-form-button" type="submit">
                 Next
               </button>

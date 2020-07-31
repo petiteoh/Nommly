@@ -11,7 +11,7 @@ import RecipeShowContainer from "./recipe/recipe_show_container";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
 const App = () => (
-  <div>
+  <div className="app">
     <NavContainer />
     <Route exact path="/" component={GreetingContainer} />
     <Route exact path="/" component={RecipeIndexContainer} />
