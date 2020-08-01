@@ -21,7 +21,7 @@ class RecipeIndex extends React.Component {
         })
 
         return (
-            <section clasName="recipe-index-container">
+            <section className="recipe-index-container">
                 {/* this is showing */}
                 {recipeLis}
             </section>

@@ -5,7 +5,6 @@ class EmailForm extends React.Component {
         super(props)
 
         this.state = { email: "", errors: "" }
-        
         this.handleSubmit = this.handleSubmit.bind(this);
     };
 
@@ -35,7 +34,7 @@ class EmailForm extends React.Component {
         return false;
       } else {
         return true;
-      }     
+      };
     };
 
     renderErrors() {
@@ -49,6 +48,20 @@ class EmailForm extends React.Component {
     };
 
     render() {
+      let errorMessage;
+      if (this.state.errors) {
+        errorMessage = (
+          <p className="email-form-errors">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {this.state.errors}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </p>
+        );
+      };
+
         return (
           <div className="email-form-container">
             <h1 className="email-form-header-message">Cooks love us!</h1>
@@ -75,18 +88,19 @@ class EmailForm extends React.Component {
             </h3>
             {/* <h1 className="connect">Connect with Email</h1> */}
             <form className="email-form" onSubmit={this.handleSubmit}>
-              {this.renderErrors()}
+              {/* {this.renderErrors()} */}
               <label className="email-form-label">
                 <input
-                  autocapitalize="off"
+                  autoCapitalize="off"
                   placeholder="Email Address"
                   className="email-form-input"
                   type="text"
                   value={this.state.email}
                   onChange={this.update("email")}
                 />
+                {/* <p className="email-form-errors">{this.state.errors}</p> */}
               </label>
-              <p>{this.state.errors}</p>
+              {errorMessage}
               <button className="email-form-button" type="submit">
                 Next
               </button>

@@ -5,7 +5,7 @@ class SignupPasswordForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { email: this.props.email, password: "", display_name: "" };
+    this.state = { email: this.props.email, password: "", display_name: "", errors: "" };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -17,54 +17,98 @@ class SignupPasswordForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signup(this.state).then(
-      (response) => {
-        this.props.history.push("/");
-      }, 
-      (err) => {
-        console.log(err.responseJSON);
-      }
-    );
+
+    if (this.isValidPassword(this.state.password)) {
+      this.props.signup(this.state).then(
+        (response) => {
+          this.props.history.push("/");
+        }, 
+        (err) => {
+          console.log(err.responseJSON);
+        });
+    } else {
+      this.setState({errors: "Password must be 6 or more characters."})
+    }
   }
 
+  isValidPassword(input) {
+    if (input.length < 7) {
+      return false;
+    } else {
+      return true;
+    };
+  };
+
     renderErrors() {
-      return(
-        <ul>
-            {this.props.errors.map((error, i) => (
-            <li key={`error-${i}`}>
-                {error}
+      return (
+        <ul className="signup-password-errors-container">
+          {this.props.errors.map((error, i) => (
+            <li className="signup-password-error" key={`error-${i}`}>
+              {error}
             </li>
-            ))}
+          ))}
         </ul>
       );
     };
 
     render() {
+        let errorMessage;
+        if (this.state.errors) {
+          errorMessage = (
+            <p className="signup-password-errors">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              {this.state.errors}
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            </p>
+          );
+        };
+
         return (
-          <div >
-            {this.props.navLink}
-            <h1>Welcome to Nommly!</h1>
-            <form onSubmit={this.handleSubmit}>
-              {this.renderErrors()}
-              <label>
-                Create Password:
+          <div className="signup-password-form-container">
+            <div className="signup-password-backlink-container">
+              <p className="signup-password-less-icon">
+                <i className="fa fa-chevron-left" aria-hidden="true"></i>
+              </p>
+              {this.props.navLink}
+            </div>
+            <form className="signup-form" onSubmit={this.handleSubmit}>
+              <h1 className="signup-welcome-message">Welcome!</h1>
+              <h1 className="signup-password-sub-message">
+                Please create your password
+              </h1>
+              <label className="signup-password-label">
                 <input
+                  autoCapitalize="off"
+                  placeholder="Password"
+                  className="signup-password-input"
                   type="password"
                   value={this.state.password}
                   onChange={this.update("password")}
                 />
               </label>
+              {this.renderErrors()}
+              {errorMessage}
               <br></br>
-              <label>
-                Display Name:
+              <h1 className="signup-greeting-message">
+                How Shall We Greet You?
+              </h1>
+              <label className="display-name-label">
                 <input
+                  autoCapitalize="off"
+                  placeholder="Your Name"
                   type="string"
+                  className="display-name-input"
                   value={this.state.display_name}
                   onChange={this.update("display_name")}
                 />
               </label>
               <br></br>
-              <button type="submit">Sign Up</button>
+              <button className="signup-password-button" type="submit">
+                Sign Up
+              </button>
             </form>
           </div>
         );

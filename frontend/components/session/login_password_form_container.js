@@ -8,14 +8,13 @@ const mSTP = (state) => {
   return {
     email: state.session.email,
     errors: state.errors.session,
-    navLink: <Link to="/email">Back</Link>,
+    navLink: <Link className="login-password-form-back-link" to="/email">Back</Link>,
   };
 };
 
 const mDTP = (dispatch) => {
   return {
     login: user => {
-      debugger
       dispatch(login(user))
     }
   };

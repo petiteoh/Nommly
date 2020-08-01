@@ -29,4 +29,3 @@ export const fetchUserByEmail = (userEmail) => {
     });
 }
 
-// get "api/user", to: "users#show"

@@ -626,7 +626,7 @@ var RecipeIndex = /*#__PURE__*/function (_React$Component) {
         }, recipe.creator)));
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
-        clasName: "recipe-index-container"
+        className: "recipe-index-container"
       }, recipeLis);
     }
   }]);
@@ -929,6 +929,8 @@ var EmailForm = /*#__PURE__*/function (_React$Component) {
       } else {
         return true;
       }
+
+      ;
     }
   }, {
     key: "renderErrors",
@@ -945,6 +947,15 @@ var EmailForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var errorMessage;
+
+      if (this.state.errors) {
+        errorMessage = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "email-form-errors"
+        }, "\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0 \xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0 \xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0", this.state.errors, "\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0 \xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0");
+      }
+
+      ;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "email-form-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
@@ -966,16 +977,16 @@ var EmailForm = /*#__PURE__*/function (_React$Component) {
       }, "We're rated 4.5 out of 5 stars because our users have so much success finding recipes they love."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "email-form",
         onSubmit: this.handleSubmit
-      }, this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "email-form-label"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        autocapitalize: "off",
+        autoCapitalize: "off",
         placeholder: "Email Address",
         className: "email-form-input",
         type: "text",
         value: this.state.email,
         onChange: this.update("email")
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.errors), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), errorMessage, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "email-form-button",
         type: "submit"
       }, "Next")), this.props.navLink);
@@ -1082,7 +1093,8 @@ var LoginPasswordForm = /*#__PURE__*/function (_React$Component) {
     _this = _super.call(this, props);
     _this.state = {
       email: _this.props.email,
-      password: ""
+      password: "",
+      errors: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -1103,33 +1115,90 @@ var LoginPasswordForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
-      this.props.login(this.state).then(function (response) {
-        _this3.props.history.push("/");
-      }, function (err) {
-        console.log(err.responseJSON);
-      });
+
+      if (this.isValidPassword(this.state.password)) {
+        this.props.login(this.state).then(function (response) {
+          _this3.props.history.push("/");
+        }, function (err) {
+          console.log(err.responseJSON);
+        });
+      } else {
+        this.setState({
+          errors: "PASSWORD MUST BE 6 OR MORE CHARACTERS."
+        });
+      }
     }
   }, {
-    key: "renderErrors",
-    value: function renderErrors() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, i) {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: "error-".concat(i)
-        }, error);
-      }));
+    key: "isValidPassword",
+    value: function isValidPassword(input) {
+      if (input.length < 7) {
+        return false;
+      } else {
+        return true;
+      }
+
+      ;
     }
   }, {
     key: "render",
+    // renderErrors() {
+    //     return (
+    //       <ul className="login-password-form-errors-container">
+    //         {this.props.errors.map((error, i) => (
+    //           <li className="login-password-form-error" key={`error-${i}`}>
+    //             {error}
+    //           </li>
+    //         ))}
+    //       </ul>
+    //     );
+    // };
+    // renderErrors() {
+    //     return (
+    //         this.props.errors.map((error, i) => (
+    //           error
+    //         ))
+    //     );
+    // };
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.navLink, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome Back!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      // let errorMessageBefore = this.renderErrors();
+      var errorMessage;
+
+      if (this.state.errors) {
+        errorMessage = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "login-password-form-errors"
+        }, "\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0 \xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0 \xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0", this.state.errors, "\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0 \xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0");
+      }
+
+      ;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login-password-form-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "login-password-backlink-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "login-password-less-icon"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-chevron-left",
+        "aria-hidden": "true"
+      })), this.props.navLink), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "login-password-header-message"
+      }, "Welcome Back!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "login-password-sub-message"
+      }, "Please enter your password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "login-password-form",
         onSubmit: this.handleSubmit
-      }, this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Password", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "login-password-label"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        autoCapitalize: "off",
+        placeholder: "Password",
         type: "password",
+        className: "login-password-input",
         value: this.state.password,
         onChange: this.update("password")
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), errorMessage, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "login-password-button",
         type: "submit"
-      }, "Login")));
+      }, "Next")));
     }
   }]);
 
@@ -1167,6 +1236,7 @@ var mSTP = function mSTP(state) {
     email: state.session.email,
     errors: state.errors.session,
     navLink: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+      className: "login-password-form-back-link",
       to: "/email"
     }, "Back")
   };
@@ -1175,7 +1245,6 @@ var mSTP = function mSTP(state) {
 var mDTP = function mDTP(dispatch) {
   return {
     login: function login(user) {
-      debugger;
       dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["login"])(user));
     }
   };
@@ -1238,7 +1307,8 @@ var SignupPasswordForm = /*#__PURE__*/function (_React$Component) {
     _this.state = {
       email: _this.props.email,
       password: "",
-      display_name: ""
+      display_name: "",
+      errors: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
@@ -1259,17 +1329,38 @@ var SignupPasswordForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
-      this.props.signup(this.state).then(function (response) {
-        _this3.props.history.push("/");
-      }, function (err) {
-        console.log(err.responseJSON);
-      });
+
+      if (this.isValidPassword(this.state.password)) {
+        this.props.signup(this.state).then(function (response) {
+          _this3.props.history.push("/");
+        }, function (err) {
+          console.log(err.responseJSON);
+        });
+      } else {
+        this.setState({
+          errors: "Password must be 6 or more characters."
+        });
+      }
+    }
+  }, {
+    key: "isValidPassword",
+    value: function isValidPassword(input) {
+      if (input.length < 7) {
+        return false;
+      } else {
+        return true;
+      }
+
+      ;
     }
   }, {
     key: "renderErrors",
     value: function renderErrors() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, this.props.errors.map(function (error, i) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "signup-password-errors-container"
+      }, this.props.errors.map(function (error, i) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          className: "signup-password-error",
           key: "error-".concat(i)
         }, error);
       }));
@@ -1277,17 +1368,53 @@ var SignupPasswordForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.props.navLink, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Welcome to Nommly!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      var errorMessage;
+
+      if (this.state.errors) {
+        errorMessage = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+          className: "signup-password-errors"
+        }, "\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0 \xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0 \xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0", this.state.errors, "\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0 \xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0\xA0");
+      }
+
+      ;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "signup-password-form-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "signup-password-backlink-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "signup-password-less-icon"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fa fa-chevron-left",
+        "aria-hidden": "true"
+      })), this.props.navLink), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "signup-form",
         onSubmit: this.handleSubmit
-      }, this.renderErrors(), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Create Password:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "signup-welcome-message"
+      }, "Welcome!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "signup-password-sub-message"
+      }, "Please create your password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "signup-password-label"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        autoCapitalize: "off",
+        placeholder: "Password",
+        className: "signup-password-input",
         type: "password",
         value: this.state.password,
         onChange: this.update("password")
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Display Name:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), this.renderErrors(), errorMessage, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "signup-greeting-message"
+      }, "How Shall We Greet You?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "display-name-label"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        autoCapitalize: "off",
+        placeholder: "Your Name",
         type: "string",
+        className: "display-name-input",
         value: this.state.display_name,
         onChange: this.update("display_name")
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "signup-password-button",
         type: "submit"
       }, "Sign Up")));
     }
@@ -1327,6 +1454,7 @@ var mSTP = function mSTP(state) {
     email: state.session.email,
     errors: state.errors.session,
     navLink: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      className: "signup-password-back-link",
       to: "/email"
     }, "Back")
   };
@@ -1335,7 +1463,7 @@ var mSTP = function mSTP(state) {
 var mDTP = function mDTP(dispatch) {
   return {
     signup: function signup(user) {
-      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["signup"])(user));
+      dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_3__["signup"])(user));
     }
   };
 };
@@ -1608,9 +1736,7 @@ var sessionErrorsReducer = function sessionErrorsReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SESSION_ERRORS"]:
-      debugger;
       return action.errors;
-    // 
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return [];
@@ -1868,7 +1994,7 @@ var fetchUserByEmail = function fetchUserByEmail(userEmail) {
       userEmail: userEmail
     }
   });
-}; // get "api/user", to: "users#show"
+};
 
 /***/ }),
 
