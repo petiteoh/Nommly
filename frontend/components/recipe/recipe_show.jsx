@@ -7,8 +7,8 @@ class RecipeShow extends React.Component {
     };
 
     render() {
+        if (!this.props.recipe) return null;
         const { recipe, ingredients } = this.props;
-        if (!recipe) return null;
         const ingredientLis = ingredients.map ((ingredient) => {
             return (
                 <li key={ingredient.id} className="ingredient">{ingredient.ingredient}</li>

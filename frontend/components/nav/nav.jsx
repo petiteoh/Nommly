@@ -1,5 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Redirect } from "react-router-dom";
 
 class Nav extends React.Component {
 
@@ -12,11 +13,11 @@ class Nav extends React.Component {
         <nav className="navbar">
           <div className="left-icons">
             <i className="fas fa-bars"></i>
-            <img
-              className="yummly-icon"
-              src="https://theme.zdassets.com/theme_assets/33710/aa8385e43b1db7d88a0f43b3ac30eb6f684c7326.png"
-              alt="Yummly Icon"
-            />
+              <img
+                className="yummly-icon"
+                src="https://theme.zdassets.com/theme_assets/33710/aa8385e43b1db7d88a0f43b3ac30eb6f684c7326.png"
+                alt="Yummly Icon"
+              />
           </div>
           <div className="right-icons">
           </div>
