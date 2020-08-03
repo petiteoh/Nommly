@@ -30,10 +30,10 @@ class EmailForm extends React.Component {
     };
 
     isValidEmail(input) {
-      if (input.length < 4) {
-        return false;
-      } else {
+      if (input.length > 4 && input.includes("@") && input.includes("."))  {
         return true;
+      } else {
+        return false;
       };
     };
 

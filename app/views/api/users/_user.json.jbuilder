@@ -1,1 +1,3 @@
-json.extract! user, :email, :display_name, :id
+json.extract! user, :email, :id
+json.displayName user.display_name
+json.nommedRecipeIds user.nom_recipes.pluck(:id)

@@ -1,0 +1,138 @@
+.email-form-container {
+    position:fixed;
+    z-index: 10;
+    display: flex;
+    background: white;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    margin-bottom: 200px;
+    font-family: europa-boldregular, sans-serif;
+}
+
+.email-form-header-message{
+    font-family: europa-boldregular, sans-serif;
+    color: #4a4a4a;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 17px;
+}
+
+.email-form-ratings {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #e16121;
+    margin-bottom: 32px;
+}
+
+.email-form-message {
+    width: 600px;
+    color: #4a4a4a;
+    font-size: 17px;
+    font-weight: lighter;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 43px;
+
+}
+
+.connect {
+    width: 80%;
+    color: #4a4a4a;
+    font-size: 17px;
+    font-weight: lighter;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 17px;
+}
+
+.email-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.email-form-error {
+
+}
+
+.email-form-label {
+    color: #e3e3e3;
+}
+
+.email-form-input {
+    outline: 0;
+    padding: 0 40px 12px;
+    border: 0;
+    border-bottom: 2px solid #e3e3e3;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 35px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    color: #4a4a4a;
+}
+
+::placeholder { 
+    color: #e3e3e3; 
+    font-size: 35px;
+}
+
+.email-form-errors {
+    position: absolute;
+    margin-top: 52px;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+    padding-top: 8px;
+    text-align: center;
+    text-transform: uppercase;
+    color: red;
+    font-weight: bold;
+    font-size: 10px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    border-top: 2px solid red;
+}
+
+.email-form-button {
+    margin-top: 50px;
+    background-color: #3a9691;
+    color: #ffffff;
+    line-height: 40px;
+    letter-spacing: 0;
+    display: inline-block;
+    outline: none;
+    border: none;
+    border-radius: 3em;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: capitalize;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    transition: all 200ms ease;
+    font-family: europa-boldregular, sans-serif;
+    font-weight: 500;
+    width: 135px;
+    margin-bottom: 35px;
+}
+        
+.email-form-close-link {
+    width: 100%;
+    text-align: right;
+    margin-right: 40px;
+    text-transform: uppercase;
+    color: rgba(0,0,0,0.4);
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
+    text-decoration: none;
+}

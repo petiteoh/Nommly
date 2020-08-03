@@ -11,7 +11,7 @@
 class RecipeIngredient < ApplicationRecord
     validates :recipe_id, :ingredient_id, presence: true
     validates :recipe_id, uniqueness: {scope: :ingredient_id}
-
+    
     belongs_to :recipe
     belongs_to :ingredient
 end

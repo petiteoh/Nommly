@@ -20,6 +20,11 @@ class User < ApplicationRecord
     
     after_initialize :ensure_session_token
 
+    has_many :noms, dependent: :destroy
+    has_many :nom_recipes,
+        through: :noms,
+        source: :recipe
+
     attr_reader :password
 
     def self.find_by_credentials(email, password)

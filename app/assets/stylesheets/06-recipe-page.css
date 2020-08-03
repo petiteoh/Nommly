@@ -1,0 +1,246 @@
+.recipe-page-container {
+    padding-top: 85px;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.recipe-page-details-container {
+    display: flex;
+    list-style: none;
+    justify-content: space-evenly;
+    padding: 80px 80px 40px 80px;
+    height: 400px;
+}
+
+.hr {
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    overflow: hidden;
+    border-style: inset;
+    border-width: 1px;
+    width: 850px;
+    color: #e3e3e3;
+}
+
+.recipe-page-left-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+}
+
+/* left top details */
+.top-details-container {
+
+}
+
+.top-details {
+
+}
+
+.recipe-show-recipe-title {
+    margin: 0 0 8px;
+    text-shadow: 0 0 0;
+    font-size: 40px;
+    line-height: 1.2;
+    font-family: europa-boldregular, sans-serif;
+    font-weight: 700;
+    -webkit-font-smoothing: antialiased;
+    color: #232323;
+
+    width: 100%;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden; 
+}
+
+.recipe-show-recipe-creator {
+    cursor: pointer;
+    width: 100%;
+    word-break: break-word;
+    font-size: 12px;
+    line-height: 1.625;
+    font-family: europa-regularregular, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: none;
+    transition: all 200ms ease;
+    color: #7d7d7d;
+    text-transform: uppercase;
+    
+    width: 100%;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    
+    position: relative;
+    top: 10px;
+}
+
+/* left middle details */
+.middle-details-container {
+}
+
+.middle-details {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.middle-details div {
+    display: flex;
+    flex-direction: column;
+}
+
+.middle-details label {
+    font-size: 14px;
+    line-height: 1.714285714285714;
+    font-family: europa-regularregular, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+}
+
+.middle-details li {
+    color: #4a4a4a;
+    display: inline-block;
+    font-size: 40px;
+    line-height: 1.2;
+    font-family: europa-lightregular, sans-serif;
+    font-weight: 100;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+.ingredients {
+}
+
+.minutes {
+    padding: 0 30px 0 30px;
+    border-right: 1px solid #bababa;
+    border-left: 1px solid #bababa;
+}
+
+.calories {
+
+}
+
+/* left bottom details */
+.bottom-details-container {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.bottom-details {
+
+}
+
+.read-directions-button-container {
+
+}
+
+.read-directions-button {
+    margin-top: 5px;
+    background-color: #3a9691;
+    color: #ffffff;
+    line-height: 40px;
+    letter-spacing: 0;
+    display: inline-block;
+    outline: none;
+    border: none;
+    border-radius: 3em;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: capitalize;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    transition: all 200ms ease;
+    font-family: europa-boldregular, sans-serif;
+    font-weight: 500;
+    width: 135px;
+}
+
+/* right image container */
+.recipe-page-right-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.right-thumbnail {
+    width: 320px; /* width of container */
+    height: 320px; /* height of container */
+    overflow: hidden;
+
+    position: relative;
+    height: 0;
+    padding-bottom: 100%;
+    border-radius: 4px;
+}
+
+.right-thumbnail img {
+    width: 320px;
+    height: 320px;
+}
+
+/* mid page container */
+.description-ingredients-container {
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 60px 80px 40px 80px;
+}
+
+.description-ingredients-container h3 {
+    font-size: 24px;
+    line-height: 1.333333333333333;
+    margin: 0 0 28px;
+    color: #232323;
+    font-weight: bold;
+    font-family: europa-boldregular, sans-serif;
+
+}
+
+.description-container {
+
+}
+
+.description-container p {
+    font-size: 18px;
+    line-height: 1.666666666666667;
+    color: #4a4a4a;
+    font-family: europa-boldregular, sans-serif;
+    margin: 0 0 1.2em;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+}
+
+.ingredients-container {
+
+}
+
+.ingredient {
+    font-size: 18px;
+    line-height: 1.666666666666667;
+    color: #4a4a4a;
+    font-family: europa-boldregular, sans-serif;
+    margin: 0 0 1.2em;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+
+}
+

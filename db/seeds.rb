@@ -12,6 +12,7 @@ Course.destroy_all
 Recipe.destroy_all
 Ingredient.destroy_all
 RecipeIngredient.destroy_all
+Nom.destroy_all
 
 demoUser = User.create(email: "demo@demo.com", password: 11111111, display_name: "Demo User")
 
@@ -188,6 +189,10 @@ ri17 = RecipeIngredient.create(recipe_id: r9.id, ingredient_id: i3.id)
 
 ri18 = RecipeIngredient.create(recipe_id: r10.id, ingredient_id: i3.id)
 ri19 = RecipeIngredient.create(recipe_id: r6.id, ingredient_id: i9.id)
+
+n1 = Nom.create(user_id: demoUser.id, recipe_id: r4.id)
+n1 = Nom.create(user_id: demoUser.id, recipe_id: r5.id)
+n1 = Nom.create(user_id: demoUser.id, recipe_id: r8.id)
 
 
 

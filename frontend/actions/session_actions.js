@@ -5,10 +5,23 @@ export const LOGOUT_CURRENT_USER = "LOGOUT_CURRENT_USER";
 export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_BY_EMAIL = "RECEIVE_USER_BY_EMAIL";
 
-const receiveCurrentUser = (currentUser) => ({
-    type: RECEIVE_CURRENT_USER,
-    currentUser,
-});
+const receiveCurrentUser = (payload) => {
+    debugger
+    // let recipes = () => {
+    //     if (payload.recipes.length > 0) {
+    //         return payload.recipes;
+    //     } else {
+    //         return null;
+    //     }
+    // }
+    return {
+        type: RECEIVE_CURRENT_USER,
+        currentUser: payload.user,
+        recipes: payload.recipes,
+        // jbuilder collects information from 2 keys. so you need to split it into
+        // key of user or key of recipes
+    }
+};
 
 const logoutCurrentUser = () => ({
     type: LOGOUT_CURRENT_USER,
@@ -25,16 +38,16 @@ const receiveUserByEmail = (userEmail) => ({
 })
 
 export const login = (user) => (dispatch) => {
-    return APIUtil.login(user).then((user) => {
-        return dispatch(receiveCurrentUser(user)
+    return APIUtil.login(user).then((payload) => {
+        return dispatch(receiveCurrentUser(payload)
     )}, (err) => {
         return dispatch(receiveErrors(err.responseJSON))
     }); 
 };
 
 export const signup = (user) => (dispatch) => {
-    return APIUtil.signup(user).then((user) => {
-        return dispatch(receiveCurrentUser(user) 
+    return APIUtil.signup(user).then((payload) => {
+        return dispatch(receiveCurrentUser(payload) 
     )}, (err) => {
         return dispatch(receiveErrors(err.responseJSON))
     });
