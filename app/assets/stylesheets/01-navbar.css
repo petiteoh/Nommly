@@ -62,8 +62,6 @@
     color:#4a4a4a;
 }
 
-
-
 .banner-container {
     height: 80px;
     background-color: #3a9691;
@@ -116,20 +114,51 @@
 
 /* side bar */
 .side-nav {
-    width: 250px;
-    height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
-    display: none;
+    transform: translate3d(-30vw, 0, 0);
+
+    width: 250px;
+    height: 100vh;
+    /* display: none; */
 }
 
-.signup-login-sidebar, .logout-sidebar {
-    /* width: 200px; */
-    height: 100%;
-    background-color: #f6f6f6;
-    padding: 50px 30px 0 30px
+#signup-login-sidebar, #logout-sidebar {
+    /* height: 100%; */
+    /* background-color: #f6f6f6; */
+    padding: 33px 30px 0 30px;
     
+    width: 52vw;
+    height: 100vh;
+    background-color: #f6f6f6;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform .3s
+                cubic-bezier(0, .52, 0, 1);
+    overflow: scroll;
+    z-index: 1000;
+}
+
+#signup-login-sidebar.hide, #logout-sidebar.hide {
+    transform: translate3d(-50vw, 0, 0);
+}
+
+#signup-login-sidebar.show, #logout-sidebar.show {
+    transform: translate3d(0vw, 0, 0);
+    overflow: hidden;
+}
+
+.sidebar-ul, .sidebar-ul > a {
+    padding-left: 263px;
+    cursor: pointer;
+    /* padding: 0 0 0 32px; */
+    color: #707070;
+    transition: color 400ms ease;
+    font-size: 14px;
+    font-family: europa-boldregular, sans-serif;
+    text-decoration: none;
 }
 
 .signup-login-btn {
@@ -155,60 +184,16 @@
     text-decoration: none;
 }
 
-.user-circle-icon {
+.user-circle-icon > a > i {
+    padding-bottom: 45px;
     color: #707070;
-    width: 56px;
-    padding-bottom: 35px;
-    margin: auto;
 }
 
-.user-circle-icon > i {
-    width: 56px;
+.user-circle-icon > a > i:hover {
+    border-color: 10px solid #3a9691;
+    color: #4a4a4a
 }
 
-
-
-.logout-sidebar a  {
-    cursor: pointer;
-    line-height: 2;
-    /* padding: 0 0 0 32px; */
-    color: #707070;
-    transition: color 400ms ease;
-    font-size: 14px;
-    font-family: europa-boldregular, sans-serif;
-    text-decoration: none;
-}
-
-.logout-sidebar h1 {
-    cursor: pointer;
-    line-height: 2;
-    /* padding: 0 0 0 32px; */
-    color: #707070;
-    transition: color 400ms ease;
-    font-size: 14px;
-    font-family: europa-boldregular, sans-serif;
-    text-decoration: none;
-}
-
-.logout-sidebar h1:hover {
-    cursor: pointer;
-    line-height: 2;
-    /* padding: 0 0 0 32px; */
+.sidebar-ul h1:hover, .sidebar-ul a:hover {
     color: #4a4a4a;
-    transition: color 400ms ease;
-    font-size: 14px;
-    font-family: europa-boldregular, sans-serif;
-    text-decoration: none;
-    /* outline: #3a9691; */
-}
-
-.logout-sidebar a:hover {
-    cursor: pointer;
-    line-height: 2;
-    /* padding: 0 0 0 32px; */
-    color:#4a4a4a;
-    transition: color 400ms ease;
-    font-size: 14px;
-    font-family: europa-boldregular, sans-serif;
-    text-decoration: none;
 }

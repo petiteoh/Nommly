@@ -21,9 +21,7 @@ class UserShow extends React.Component {
     render() {
         const { unNomRecipe, nommedRecipes } = this.props;
         if (nommedRecipes.length === 0) return null;
-        debugger
         const nommedRecipesLis = nommedRecipes.map((nommedRecipe) => {
-            debugger
             return (
                 <ul key={nommedRecipe.id} className="recipe-index-recipe-container">
                     <Link to={`/recipes/${nommedRecipe.id}`} >
@@ -51,14 +49,24 @@ class UserShow extends React.Component {
             );
         });
 
-        return (
-            <section className = "recipe-index-container" >
-                <h1 className="recipe-index-header">All Noms</h1>
-                <div className="recipe-index-recipes-container">
-                    {nommedRecipesLis}
-                </div>
-            </section>
-        )
+        if (nommedRecipesLis.length > 0) {
+            return (
+                <section className = "recipe-index-container" >
+                    <h1 className="recipe-index-header">All Noms</h1>
+                    <div className="recipe-index-recipes-container">
+                        {nommedRecipesLis}
+                    </div>
+                </section>
+            )
+        } else {
+            return (
+                <section className="recipe-index-container" >
+                    <h1 className="recipe-index-header">All Noms</h1>
+                    <div className="recipe-index-recipes-container">
+                    </div>
+                </section>
+            )
+        }
     };
 };
 
