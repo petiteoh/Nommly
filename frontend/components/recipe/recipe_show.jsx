@@ -2,21 +2,47 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class RecipeShow extends React.Component {
+    constructor(props) {
+        super(props)
+        let state = { nom: true }
+        // this.state = this.props.nommedRecipes;
+    }
+
     componentDidMount() {
-        // debugger
         this.props.fetchRecipe(this.props.match.params.recipeId);
     };
-
+    
     componentDidUpdate(prevProps) {
-        // debugger
         if (prevProps.match.params.recipeId !== this.props.match.params.recipeId) {
             this.props.fetchRecipe(this.props.match.params.recipeId);
         }
     }
+    
+    unNomNomRecipe() {
+        const { recipe, nomRecipe, currentUser, unNomRecipe } = this.props;
+        if (currentUser.nommedRecipeIds.includes(recipe.id)) {
+            return unNomRecipe(recipe.id)
+        } else {
+            return nomRecipe(recipe.id)
+        }
+    }
+
+    onClick(e) {
+        unNomNomRecipe();
+        this.toggleImageUrl();
+    };
+
+
+    toggleImageUrl() {
+        this.setState(state => ({ nom: !state.nom }))
+    }
+
+    getImageUrl() {
+        this.state.nom ? "../../../app/assets/images/yummed.png" : "https://theyumyumclub.com/wp-content/uploads/2019/01/Yummly-Button-2.png"
+    }
 
     render() {
-        const { recipe, ingredients } = this.props;
-        debugger
+        const { recipe, ingredients, nomRecipe } = this.props;
         if ( ingredients.length === 0 || !recipe) return null
 
         let ingredientLis;
@@ -27,6 +53,8 @@ class RecipeShow extends React.Component {
                 )
             });
         }
+
+        
 
         const ingredientCount = ingredients.length;
 
@@ -59,11 +87,11 @@ class RecipeShow extends React.Component {
                         <div className="bottom-details-container">
                             <section className="bottom-details">
                                 <div className="read-directions-button-container">
-                                    <button className="read-directions-button" href="{recipe.directions}">Read Directions</button>
+                                    <a className="read-directions-button" href={recipe.directions}>Read Directions</a>
                                 </div>
                             </section>
                             <section className="nom-button-wrapper">
-                                <button className="nom-block-button" onClick={() => nomRecipe(recipe.id)}>
+                                <button className="nom-block-button" onClick={() => this.onClick()}>
                                     <div className="nom-icon-container">
                                         <img className="nom-icon" src="https://theyumyumclub.com/wp-content/uploads/2019/01/Yummly-Button-2.png" alt="Yum Button" />
                                     </div>

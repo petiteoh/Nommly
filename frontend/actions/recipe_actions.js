@@ -26,6 +26,12 @@ export const fetchRecipes = () => (dispatch) => {
     });
 };
 
+export const fetchSearchRecipes = (param) => (dispatch) => {
+    return APIUtil.fetchSearchRecipes(param).then((recipes) => {
+        return dispatch(receiveRecipes(recipes))
+    });
+};
+
 export const fetchRecipe = (recipeId) => (dispatch) => {
     return APIUtil.fetchRecipe(recipeId).then((payload) => {
         return dispatch(receiveRecipe(payload))

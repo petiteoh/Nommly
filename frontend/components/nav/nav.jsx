@@ -39,7 +39,6 @@ class Nav extends React.Component {
 
   render() {
     const { currentUser, currentUserId, login, logout } = this.props;
-    debugger
     if (currentUserId === 23) {
     return (
       <section className="whole-nav-section">
@@ -59,6 +58,9 @@ class Nav extends React.Component {
             </div>
             <div className="right-icons">
               <div className="nav-user-circle-icon">
+                <Link to="/search">
+                  <i className="fas fa-search fa-1x"></i>
+                </Link>
                 <Link to="/profile">
                   <i className="fa fa-user-circle fa-1x" aria-hidden="true"></i>
                 </Link>
@@ -103,6 +105,9 @@ class Nav extends React.Component {
             </div>
             <div className="right-icons">
               <div className="nav-user-circle-icon">
+                <Link to="/search">
+                  <i className="fas fa-search fa-1x"></i>
+                </Link>
                 <Link to="/profile">
                   <i className="fa fa-user-circle fa-1x" aria-hidden="true"></i>
                 </Link>
@@ -147,8 +152,8 @@ class Nav extends React.Component {
             </div>
             <div className="right-icons">
               <div className="nav-user-circle-icon">
-                <Link to="/profile">
-                  <i className="fa fa-user-circle fa-1x" aria-hidden="true"></i>
+                <Link to="/search">
+                  <i className="fas fa-search fa-1x"></i>
                 </Link>
               </div>
             </div>

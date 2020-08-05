@@ -8,13 +8,16 @@ import NavContainer from "./nav/nav_container"
 import RecipeIndexContainer from "./recipe/recipe_index_container";
 import RecipeShowContainer from "./recipe/recipe_show_container";
 import UserShowContainer from "./user/user_show_container";
+import SearchContainer from "./search/search_container";
+import SearchResultsContainer from "./search/search_results_container"
 
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
 const App = () => (
   <div className="app">
     <NavContainer />
-    {/* <Route exact path="/" component={GreetingContainer} /> */}
+    <Route path="/search" component={SearchContainer} />
+    <Route path="/search-results" component={SearchResultsContainer} />
     <Route exact path="/" component={RecipeIndexContainer} />
     <Route path="/recipes/:recipeId" component={RecipeShowContainer} />
     <Route path="/email" component={EmailFormContainer} />

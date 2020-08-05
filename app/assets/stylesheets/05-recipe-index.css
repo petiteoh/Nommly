@@ -1,15 +1,19 @@
 .recipe-index-container {
-    margin-top: 150px;
-    margin-left: 50px;
-    margin-right: 30px;
+    
+}
+
+.recipe-index-header-recipes-container {
+    padding: 150px 60px 0 60px;
+    margin: auto;
 }
 
 .recipe-index-header {
-    display: block;
-    left: 50px;
-    top: auto;
-    height: auto;
-    width: 236px;
+    /* display: block; */
+    /* left: 50px; */
+    /* top: auto; */
+    /* height: auto; */
+    /* width: 236px; */
+    /* padding-left: 115px; */
     font-size: 24px;
     line-height: 1.333333333333333;
     font-family: europa-boldregular, sans-serif;
@@ -21,7 +25,7 @@
 .recipe-index-recipes-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: space-between;
 
 }
 
@@ -112,9 +116,8 @@
     color: #3a9691;
 }
 
-
-
 .nom-button-wrapper {
+
 }
 
 .nom-block-button {

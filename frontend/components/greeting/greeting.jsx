@@ -42,7 +42,7 @@ class Greeting extends React.Component {
               </Link>
             </div>
             <h1>{currentUser.displayName}'s Feed</h1>
-            <a href="#" onClick={logout}>Log Log Out</a>
+            <a href="#" onClick={logout}>Log Out</a>
           </ul>
         </div>
       )

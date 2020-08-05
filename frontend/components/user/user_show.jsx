@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 class UserShow extends React.Component {
     constructor(props) {
         super(props)
-
         // this.state = this.props.nommedRecipes;
     }
 
@@ -19,9 +18,11 @@ class UserShow extends React.Component {
     };
 
     render() {
-        const { unNomRecipe, nommedRecipes } = this.props;
+        const { unNomRecipe, nommedRecipes, currentUser } = this.props;
         if (nommedRecipes.length === 0) return null;
         const nommedRecipesLis = nommedRecipes.map((nommedRecipe) => {
+            
+
             return (
                 <ul key={nommedRecipe.id} className="recipe-index-recipe-container">
                     <Link to={`/recipes/${nommedRecipe.id}`} >
@@ -38,7 +39,8 @@ class UserShow extends React.Component {
                         <li className="nom-button-wrapper">
                             <button className="nom-block-button" onClick={() => unNomRecipe(nommedRecipe.id)}>
                                 <div className="nom-icon-container">
-                                    <img className="nom-icon" src="https://theyumyumclub.com/wp-content/uploads/2019/01/Yummly-Button-2.png" alt="Yum Button" />
+                                    <img className="nom-icon" src="yummed.png" alt="Yum Button" />
+                                    {/* <img className="nom-icon" src="https://theyumyumclub.com/wp-content/uploads/2019/01/Yummly-Button-2.png" alt="Yum Button" /> */}
                                 </div>
                                 <br></br>
                                 <p className="nom-counter" >{nommedRecipe.noms}</p>
@@ -51,20 +53,24 @@ class UserShow extends React.Component {
 
         if (nommedRecipesLis.length > 0) {
             return (
-                <section className = "recipe-index-container" >
-                    <h1 className="recipe-index-header">All Noms</h1>
-                    <div className="recipe-index-recipes-container">
-                        {nommedRecipesLis}
-                    </div>
-                </section>
+                    <section className = "recipe-index-container" >
+                        <div className="recipe-index-header-recipes-container">
+                            <h1 className="recipe-index-header">All Noms</h1>
+                                <div className="recipe-index-recipes-container">
+                                    {nommedRecipesLis}
+                                </div>
+                        </div>
+                    </section>
             )
         } else {
             return (
-                <section className="recipe-index-container" >
-                    <h1 className="recipe-index-header">All Noms</h1>
-                    <div className="recipe-index-recipes-container">
-                    </div>
-                </section>
+                    <section className="recipe-index-container" >
+                        <div className="recipe-index-header-recipes-container">
+                            <h1 className="recipe-index-header">All Noms</h1>
+                                <div className="recipe-index-recipes-container">
+                                </div>
+                        </div>
+                    </section>
             )
         }
     };

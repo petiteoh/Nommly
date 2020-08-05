@@ -4,17 +4,22 @@ import { selectNommedRecipes } from "../../reducers/selectors_reducer"
 import UserShow from "./user_show"
 
 const mSTP = (state) => {
+    // const nommedRecipes = state.entities.users[state.session.id].nommedRecipeIds.map((recipeId) => {
+    //     return state.entities.recipes[recipeId] });
     debugger
-    const nommedRecipes = state.entities.users[state.session.id].nommedRecipeIds.map((recipeId) => {
-        return state.entities.recipes[recipeId] });
-    
+    let nommedRecipes;
     if (Object.keys(state.entities.recipes).length === 0) {
         return {
             nommedRecipes: [],
+            currentUser: state.entities.users[state.session.id],
         }
     } else {
+        debugger
+        nommedRecipes = state.entities.users[state.session.id].nommedRecipeIds.map((recipeId) => {
+            return state.entities.recipes[recipeId] });
         return {
             nommedRecipes: nommedRecipes,
+            currentUser: state.entities.users[state.session.id],
         }
     }
 };

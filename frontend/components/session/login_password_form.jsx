@@ -24,7 +24,7 @@ class LoginPasswordForm extends React.Component {
               console.log(err.responseJSON)
           });
         } else {
-          this.setState({ errors: "PASSWORD MUST BE 6 OR MORE CHARACTERS." });
+          this.setState({ errors: "PASSWORD MUST BE 8 OR MORE CHARACTERS." });
         }
     };
 

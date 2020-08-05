@@ -54,12 +54,18 @@
 
 }
 
+.fa fa-user-circle fa-1x {
+}
+
 .nav-user-circle-icon i {
     color: #707070;
+    padding-left: 13px;
+    
 }
 
 .nav-user-circle-icon i:hover {
     color:#4a4a4a;
+    cursor: pointer;
 }
 
 .banner-container {
@@ -113,87 +119,3 @@
 }
 
 /* side bar */
-.side-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate3d(-30vw, 0, 0);
-
-    width: 250px;
-    height: 100vh;
-    /* display: none; */
-}
-
-#signup-login-sidebar, #logout-sidebar {
-    /* height: 100%; */
-    /* background-color: #f6f6f6; */
-    padding: 33px 30px 0 30px;
-    
-    width: 52vw;
-    height: 100vh;
-    background-color: #f6f6f6;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transition: transform .3s
-                cubic-bezier(0, .52, 0, 1);
-    overflow: scroll;
-    z-index: 1000;
-}
-
-#signup-login-sidebar.hide, #logout-sidebar.hide {
-    transform: translate3d(-50vw, 0, 0);
-}
-
-#signup-login-sidebar.show, #logout-sidebar.show {
-    transform: translate3d(0vw, 0, 0);
-    overflow: hidden;
-}
-
-.sidebar-ul, .sidebar-ul > a {
-    padding-left: 263px;
-    cursor: pointer;
-    /* padding: 0 0 0 32px; */
-    color: #707070;
-    transition: color 400ms ease;
-    font-size: 14px;
-    font-family: europa-boldregular, sans-serif;
-    text-decoration: none;
-}
-
-.signup-login-btn {
-    background-color: #3a9691;
-    color: #ffffff;
-    line-height: 40px;
-    letter-spacing: 0;
-    display: inline-block;
-    outline: none;
-    border: none;
-    border-radius: 3em;
-    box-sizing: border-box;
-    font-size: 14px;
-    text-decoration: none;
-    text-transform: capitalize;
-    white-space: nowrap;
-    text-align: center;
-    cursor: pointer;
-    transition: all 200ms ease;
-    font-family: europa-boldregular, sans-serif;
-    font-weight: 500;
-    width: 135px;
-    text-decoration: none;
-}
-
-.user-circle-icon > a > i {
-    padding-bottom: 45px;
-    color: #707070;
-}
-
-.user-circle-icon > a > i:hover {
-    border-color: 10px solid #3a9691;
-    color: #4a4a4a
-}
-
-.sidebar-ul h1:hover, .sidebar-ul a:hover {
-    color: #4a4a4a;
-}

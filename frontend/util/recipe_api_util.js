@@ -12,6 +12,13 @@ export const fetchRecipe = (recipeId) => {
     })
 }
 
+export const fetchSearchRecipe = (query) => {
+    return $.ajax({
+        method: "GET",
+        url: `/api/recipes/${query}`,
+    })
+}
+
 export const postNomToRecipe = (recipeId) => {
     return $.ajax({
         method: "POST",
@@ -27,3 +34,10 @@ export const deleteNomFromRecipe = (recipeId) => {
         data: { recipeId },
     })
 }
+
+export const fetchSearchRecipes = (param) => {
+    return $.ajax({
+        method: "GET",
+        url: `/api/recipes?query=${param}`,
+    });
+};

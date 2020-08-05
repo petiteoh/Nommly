@@ -38,11 +38,14 @@ class RecipeIndex extends React.Component {
         });
 
         return (
+            
             <section className="recipe-index-container">
-                <h1 className="recipe-index-header">Just For You</h1>
-                    <div className="recipe-index-recipes-container">
-                        {recipeLis}
-                    </div>
+                <div className="recipe-index-header-recipes-container">
+                    <h1 className="recipe-index-header">Just For You</h1>
+                        <div className="recipe-index-recipes-container">
+                            {recipeLis}
+                        </div>
+                </div>
             </section>
         );
     };

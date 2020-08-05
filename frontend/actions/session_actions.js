@@ -6,7 +6,6 @@ export const RECEIVE_SESSION_ERRORS = "RECEIVE_SESSION_ERRORS";
 export const RECEIVE_USER_BY_EMAIL = "RECEIVE_USER_BY_EMAIL";
 
 const receiveCurrentUser = (payload) => {
-    debugger
     // let recipes = () => {
     //     if (payload.recipes.length > 0) {
     //         return payload.recipes;

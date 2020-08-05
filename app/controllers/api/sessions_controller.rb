@@ -10,7 +10,7 @@ class Api::SessionsController < ApplicationController
             login!(@user)
             render "api/users/show"
         else
-            render json: ["Password must be 6 or more characters."], status: 401
+            render json: ["Password must be 8 or more characters."], status: 401
         end
     end
 

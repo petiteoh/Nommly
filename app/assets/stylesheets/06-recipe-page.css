@@ -202,7 +202,9 @@
     list-style: none;
     flex-direction: column;
     justify-content: space-evenly;
-    padding: 60px 80px 40px 80px;
+    
+    margin: 60px 235px 40px 235px;
+
 }
 
 .description-ingredients-container h3 {

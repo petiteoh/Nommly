@@ -4,10 +4,11 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show]
     get "/user", to: "users#show"
     resource :session, only: [:create, :destroy, :show]
-    resources :recipes, only: [:index, :show]
+    resources :recipes, only: [:index, :show ]
     resources :courses, only: [:show]
     resources :noms, only: [:create]
     delete "/noms", to: "noms#destroy"
+    # resources :
   end
 
   root to: "static_pages#root"

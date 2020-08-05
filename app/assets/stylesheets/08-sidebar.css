@@ -1,0 +1,83 @@
+.side-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* max-width: 150px; */
+    height: 100vh;
+    
+}
+
+/* visitors */
+
+#signup-login-sidebar, #logout-sidebar {
+    background-color: #f6f6f6;
+    padding: 33px 30px 0 30px; 
+    width: 190px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: scroll;
+    z-index: 1000;
+    transition: transform .5s
+                cubic-bezier(0, .52, 0, 1);
+}
+
+#signup-login-sidebar.hide, #logout-sidebar.hide {
+    transform: translate3d(-50vw, 0, 0);
+}
+
+#signup-login-sidebar.show, #logout-sidebar.show {
+    transform: translate3d(0vw, 0, 0);
+    overflow: hidden;
+}
+
+.sidebar-ul, .sidebar-ul > a {
+    cursor: pointer;
+    color: #707070;
+    transition: color 400ms ease;
+    font-size: 14px;
+    font-family: europa-boldregular, sans-serif;
+    text-decoration: none;
+}
+
+.signup-login-btn {
+    background-color: #3a9691;
+    color: #ffffff;
+    line-height: 40px;
+    letter-spacing: 0;
+    display: inline-block;
+    outline: none;
+    border: none;
+    border-radius: 3em;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: capitalize;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    transition: all 200ms ease;
+    font-family: europa-boldregular, sans-serif;
+    font-weight: 500;
+    width: 135px;
+    text-decoration: none;
+}
+
+.sidebar-ul > h1 {
+    padding-bottom: 10px;
+}
+
+.user-circle-icon > a > i {
+    padding-bottom: 45px;
+    color: #707070;
+}
+
+.user-circle-icon > a > i:hover {
+    border-color: 10px solid #3a9691;
+    color: #4a4a4a
+}
+
+.sidebar-ul h1:hover, .sidebar-ul a:hover {
+    color: #4a4a4a;
+}
