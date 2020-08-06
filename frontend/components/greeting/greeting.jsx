@@ -41,7 +41,7 @@ class Greeting extends React.Component {
                 <i className="fa fa-user-circle fa-3x" aria-hidden="true"></i>
               </Link>
             </div>
-            <h1>{currentUser.displayName}'s Feed</h1>
+            <h1><Link to="/">{currentUser.displayName}'s Feed</Link></h1>
             <a href="#" onClick={logout}>Log Out</a>
           </ul>
         </div>

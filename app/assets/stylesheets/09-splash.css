@@ -1,0 +1,158 @@
+.splash-container {
+    position: relative;
+    width: 100%;
+    /* height: 600px; */
+    /* overflow: none; */
+}
+
+.splash-search-background-images {
+    
+}
+
+.base-image {
+    width: 100%;
+    height: 500px;
+    overflow: none;
+}
+
+.top-left-image {
+    position: absolute;
+    top: 8px;
+}
+
+.top-right-image {
+    position: absolute;
+    top: 130px;
+    right: 0px;
+}
+
+.slight-top-right-image {
+    position: absolute;
+    top: 230px;
+    right: 80px;
+}
+
+.marble{
+    width: 100%;
+}
+
+.strawberry-bowl {
+}
+
+.blueberry-bowl {
+}
+
+.strawberry {
+}
+
+.splash-search-background-images .splash-search-container {
+    
+}
+
+.splash-search-container {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.splash-search-bar-container {
+    width: 600px;
+    height: 55px;
+    line-height: 30px;
+    text-align: left;
+    margin: 0 auto 1rem;
+    padding: 0;
+    right: auto;
+    bottom: auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.12), 0 0 1px rgba(0,0,0,0.05) inset;
+    letter-spacing: 0;
+    display: inline-block;
+    outline: none;
+    border: none;
+    border-radius: 3em;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: capitalize;
+    white-space: nowrap;
+    background-color: #fff;
+}
+
+.splash-search-bar-icon-container > i {
+    padding-left: 20px;
+    color: #4a4a4a;
+}
+
+.splash-search-bar-input-container {
+    display: flex;
+    padding-top: 15px;
+    text-decoration: none;
+}
+
+.splash-search-bar-input {
+    padding-left: 20px;
+    color: #bababa;
+    text-transform: none;
+    line-height: 1.666666666666667;
+    border: none;
+    width: 100%;
+    background-color: transparent;
+}
+
+.splash-search-bar-input::placeholder {
+    font-size: 18px;
+    font-family: europa-regularregular, sans-serif;
+    font-weight: 400;
+}
+
+.splash-search-message {
+    text-align: center;
+    margin: 20px;
+    width: 1000px;
+}
+
+.splash-search-message-small {
+    font-family: europa-regularregular, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1;
+    color: #707070;
+    text-transform: uppercase;
+    line-height: 50px;
+}
+
+.splash-search-message-big {
+    font-size: 34px;
+    color: #4a4a4a;
+    font-family: europa-regularregular, sans-serif;
+    font-weight: 500;
+    line-height: 50px;
+}
+
+.splash-search-cuisine-container {
+    padding-top: 40px;
+}
+
+.splash-search-bubble-images {
+    display: flex;
+    justify-content: space-around;
+}
+
+.bubble-link {
+    position: relative
+}
+
+.bubble-link label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-family: europa-regularregular, sans-serif;
+    text-transform: capitalize;
+}
+

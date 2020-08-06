@@ -1,6 +1,5 @@
 import React from "react";
-// import SearchResultsContainer from "./search_results"
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 class Search extends React.Component {
@@ -17,13 +16,14 @@ class Search extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
-        const searchResults = this.props.fetchSearchRecipes(e.currentTarget.value).then((response) => {
-            this.props.history.push("/search-results")
-        }, (err) => {
-            this.props.history.push("/search-results")
-        })
+        // debugger
+        // this.props.fetchSearchRecipes(this.state.param).then((response) => {
+        //     this.props.history.push(`/search-results?query=${this.state.param}`)
+        // }, (err) => {
+        //     this.props.history.push(`/search-results?query=${this.state.param}`)
+        // })
         // return <Redirect recipes={searchResults} to="/search-results" component={SearchResultsContainer} />
+        this.props.history.push(`/search-results?query=${this.state.param}`)
     };
 
     update() {

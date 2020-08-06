@@ -13,6 +13,7 @@ const mDTP = (dispatch) => {
     return {
         nomRecipe: recipeId => dispatch(nomRecipe(recipeId)),
         unNomRecipe: recipeId => dispatch(unNomRecipe(recipeId)),
+        fetchSearchRecipes: (param) => dispatch(fetchSearchRecipes(param)),
     };
 };
 

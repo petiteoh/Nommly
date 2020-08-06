@@ -2,6 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom"
 
 class SearchResults extends React.Component {
+    componentDidMount() {
+        this.props.fetchSearchRecipes(this.props.location.search)
+    }
+
     render() {
         const { recipes, unNomRecipe, nomRecipe } = this.props
 

@@ -11,10 +11,10 @@ const mSTP = (state) => {
     if (Object.keys(state.entities.recipes).length === 0) {
         return {
             nommedRecipes: [],
-            currentUser: state.entities.users[state.session.id],
+            currentUser: {},
         }
     } else {
-        debugger
+        // debugger
         nommedRecipes = state.entities.users[state.session.id].nommedRecipeIds.map((recipeId) => {
             return state.entities.recipes[recipeId] });
         return {

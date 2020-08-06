@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_01_202857) do
+ActiveRecord::Schema.define(version: 2020_08_05_182936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,6 +66,16 @@ ActiveRecord::Schema.define(version: 2020_08_01_202857) do
     t.string "image_url"
     t.index ["course_id"], name: "index_recipes_on_course_id"
     t.index ["cuisine_id"], name: "index_recipes_on_cuisine_id"
+  end
+
+  create_table "user_preferences", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "preferable_id"
+    t.string "preferable_type"
+    t.boolean "prefered"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["preferable_id", "preferable_type"], name: "index_user_preferences_on_preferable_id_and_preferable_type"
   end
 
   create_table "users", force: :cascade do |t|

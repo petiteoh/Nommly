@@ -14,4 +14,6 @@ class Ingredient < ApplicationRecord
     has_many :recipes,
         through: :recipe_ingredients,
         source: :recipe
+
+    has_many :user_preferences, as: :preferable
 end

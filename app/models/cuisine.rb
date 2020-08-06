@@ -11,4 +11,6 @@ class Cuisine < ApplicationRecord
     validates :cuisine, presence: true, uniqueness: true
 
     has_many :recipes
+
+    has_many :user_preferences, as: :preferable
 end

@@ -25,6 +25,8 @@ class User < ApplicationRecord
         through: :noms,
         source: :recipe
 
+    has_many :user_preferences, as: :preferable
+
     attr_reader :password
 
     def self.find_by_credentials(email, password)

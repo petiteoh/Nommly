@@ -140,6 +140,7 @@ var fetchRecipes = function fetchRecipes() {
 };
 var fetchSearchRecipes = function fetchSearchRecipes(param) {
   return function (dispatch) {
+    debugger;
     return _util_recipe_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchSearchRecipes"](param).then(function (recipes) {
       return dispatch(receiveRecipes(recipes));
     });
@@ -288,9 +289,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _user_user_show_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./user/user_show_container */ "./frontend/components/user/user_show_container.js");
 /* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./search/search_container */ "./frontend/components/search/search_container.js");
 /* harmony import */ var _search_search_results_container__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./search/search_results_container */ "./frontend/components/search/search_results_container.js");
-/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
+/* harmony import */ var _search_splash_search_container__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./search/splash_search_container */ "./frontend/components/search/splash_search_container.js");
+/* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../util/route_util */ "./frontend/util/route_util.jsx");
 
  // import GreetingContainer from "./greeting/greeting_container";
+
 
 
 
@@ -315,6 +318,10 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     exact: true,
     path: "/",
+    component: _search_splash_search_container__WEBPACK_IMPORTED_MODULE_11__["default"]
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
+    exact: true,
+    path: "/",
     component: _recipe_recipe_index_container__WEBPACK_IMPORTED_MODULE_6__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/recipes/:recipeId",
@@ -322,13 +329,13 @@ var App = function App() {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Route"], {
     path: "/email",
     component: _session_email_form_container__WEBPACK_IMPORTED_MODULE_2__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_11__["AuthRoute"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_12__["AuthRoute"], {
     path: "/login-password",
     component: _session_login_password_form_container__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_11__["AuthRoute"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_12__["AuthRoute"], {
     path: "/signup-password",
     component: _session_signup_password_form_container__WEBPACK_IMPORTED_MODULE_4__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_11__["ProtectedRoute"], {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_12__["ProtectedRoute"], {
     path: "/profile",
     component: _user_user_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
   }));
@@ -425,7 +432,9 @@ var Greeting = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fa fa-user-circle fa-3x",
           "aria-hidden": "true"
-        }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, currentUser.displayName, "'s Feed"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/"
+        }, currentUser.displayName, "'s Feed")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "#",
           onClick: logout
         }, "Log Out")));
@@ -1243,7 +1252,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
- // import SearchResultsContainer from "./search_results"
 
 
 
@@ -1271,22 +1279,23 @@ var Search = /*#__PURE__*/function (_React$Component) {
   _createClass(Search, [{
     key: "handleSubmit",
     value: function handleSubmit(e) {
-      var _this2 = this;
+      e.preventDefault(); // debugger
+      // this.props.fetchSearchRecipes(this.state.param).then((response) => {
+      //     this.props.history.push(`/search-results?query=${this.state.param}`)
+      // }, (err) => {
+      //     this.props.history.push(`/search-results?query=${this.state.param}`)
+      // })
+      // return <Redirect recipes={searchResults} to="/search-results" component={SearchResultsContainer} />
 
-      e.preventDefault();
-      var searchResults = this.props.fetchSearchRecipes(e.currentTarget.value).then(function (response) {
-        _this2.props.history.push("/search-results");
-      }, function (err) {
-        _this2.props.history.push("/search-results");
-      }); // return <Redirect recipes={searchResults} to="/search-results" component={SearchResultsContainer} />
+      this.props.history.push("/search-results?query=".concat(this.state.param));
     }
   }, {
     key: "update",
     value: function update() {
-      var _this3 = this;
+      var _this2 = this;
 
       return function (e) {
-        return _this3.setState({
+        return _this2.setState({
           param: e.currentTarget.value
         });
       };
@@ -1420,6 +1429,11 @@ var SearchResults = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(SearchResults, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchSearchRecipes(this.props.location.search);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -1518,11 +1532,214 @@ var mDTP = function mDTP(dispatch) {
     },
     unNomRecipe: function unNomRecipe(recipeId) {
       return dispatch(Object(_actions_recipe_actions__WEBPACK_IMPORTED_MODULE_2__["unNomRecipe"])(recipeId));
+    },
+    fetchSearchRecipes: function fetchSearchRecipes(param) {
+      return dispatch(Object(_actions_recipe_actions__WEBPACK_IMPORTED_MODULE_2__["fetchSearchRecipes"])(param));
     }
   };
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_search_results__WEBPACK_IMPORTED_MODULE_1__["default"]));
+
+/***/ }),
+
+/***/ "./frontend/components/search/splash_search.jsx":
+/*!******************************************************!*\
+  !*** ./frontend/components/search/splash_search.jsx ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+var SplashSearch = /*#__PURE__*/function (_React$Component) {
+  _inherits(SplashSearch, _React$Component);
+
+  var _super = _createSuper(SplashSearch);
+
+  function SplashSearch(props) {
+    var _this;
+
+    _classCallCheck(this, SplashSearch);
+
+    _this = _super.call(this, props);
+    _this.state = {
+      param: ""
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
+  }
+
+  _createClass(SplashSearch, [{
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      this.props.history.push("/search-results?query=".concat(this.state.param));
+    }
+  }, {
+    key: "update",
+    value: function update() {
+      var _this2 = this;
+
+      return function (e) {
+        return _this2.setState({
+          param: e.currentTarget.value
+        });
+      };
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash-search-background-images"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "base-image"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "marble",
+        src: "https://x.yummlystatic.com/web/banner-marble-bkg.jpg",
+        alt: ""
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "top-left-image"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "strawberry-bowl",
+        src: "https://x.yummlystatic.com/web/strawberry-grain.png",
+        alt: ""
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "top-right-image"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "blueberry-bowl",
+        src: "https://x.yummlystatic.com/web/img-fruit-bowl.png",
+        alt: ""
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "slight-top-right-image"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "strawberry",
+        src: "https://x.yummlystatic.com/web/img-strawberry.png",
+        alt: ""
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash-search-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash-search-bar-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/search",
+        className: "splash-search-bar-input-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "splash-search-bar-icon-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-search fa-1.5x"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        autoCapitalize: "off",
+        placeholder: "Search a million recipes & more",
+        className: "splash-search-bar-input",
+        type: "text",
+        value: this.state.param,
+        onChange: this.update('param')
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash-search-message"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "splash-search-message-small"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Personalize your experience")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "splash-search-message-big"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "What are your favorite cuisines?")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", {
+        className: "splash-search-cuisine-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splash-search-bubble-images"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "bubble-link",
+        to: "/search-results?query=american"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "American"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://x.yummlystatic.com/web/bubble/cuisine/american.png",
+        alt: "american-cuisine-image"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "bubble-link",
+        to: "/search-results?query=indian"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Indian"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://x.yummlystatic.com/web/bubble/cuisine/indian.png",
+        alt: "indian-cuisine-image"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "bubble-link",
+        to: "/search-results?query=malaysian"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Malaysian"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://x.yummlystatic.com/web/bubble/cuisine/moroccan.png",
+        alt: "malaysian-cuisine-image"
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        className: "bubble-link",
+        to: "/search-results?query=mexican"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Mexican"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "https://x.yummlystatic.com/web/bubble/cuisine/mexican.png",
+        alt: "mexican-cuisine-image"
+      })))))));
+    }
+  }]);
+
+  return SplashSearch;
+}(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
+
+;
+/* harmony default export */ __webpack_exports__["default"] = (SplashSearch);
+
+/***/ }),
+
+/***/ "./frontend/components/search/splash_search_container.js":
+/*!***************************************************************!*\
+  !*** ./frontend/components/search/splash_search_container.js ***!
+  \***************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _splash_search__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./splash_search */ "./frontend/components/search/splash_search.jsx");
+/* harmony import */ var _actions_recipe_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/recipe_actions */ "./frontend/actions/recipe_actions.js");
+
+
+
+
+var mSTP = function mSTP(state) {
+  return {// recipes: selectRecipes(state),
+  };
+};
+
+var mDTP = function mDTP(dispatch) {
+  return {
+    fetchSearchRecipes: function fetchSearchRecipes(param) {
+      return dispatch(Object(_actions_recipe_actions__WEBPACK_IMPORTED_MODULE_2__["fetchSearchRecipes"])(param));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mSTP, mDTP)(_splash_search__WEBPACK_IMPORTED_MODULE_1__["default"]));
 
 /***/ }),
 
@@ -2263,7 +2480,7 @@ var UserShow = /*#__PURE__*/function (_React$Component) {
           className: "nom-icon-container"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "nom-icon",
-          src: "yummed.png",
+          src: window.yummedURL,
           alt: "Yum Button"
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "nom-counter"
@@ -2329,10 +2546,10 @@ var mSTP = function mSTP(state) {
   if (Object.keys(state.entities.recipes).length === 0) {
     return {
       nommedRecipes: [],
-      currentUser: state.entities.users[state.session.id]
+      currentUser: {}
     };
   } else {
-    debugger;
+    // debugger
     nommedRecipes = state.entities.users[state.session.id].nommedRecipeIds.map(function (recipeId) {
       return state.entities.recipes[recipeId];
     });
@@ -2724,7 +2941,7 @@ var usersReducer = function usersReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      return Object.assign({}, oldState, _defineProperty({}, action.currentUser.id, action.currentUser.user));
+      return Object.assign({}, oldState, _defineProperty({}, action.currentUser.id, action.currentUser));
 
     case _actions_recipe_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_NOM"]:
       var user = action.user;
@@ -2797,6 +3014,7 @@ var fetchRecipe = function fetchRecipe(recipeId) {
   });
 };
 var fetchSearchRecipe = function fetchSearchRecipe(query) {
+  debugger;
   return $.ajax({
     method: "GET",
     url: "/api/recipes/".concat(query)
@@ -2821,9 +3039,10 @@ var deleteNomFromRecipe = function deleteNomFromRecipe(recipeId) {
   });
 };
 var fetchSearchRecipes = function fetchSearchRecipes(param) {
+  debugger;
   return $.ajax({
     method: "GET",
-    url: "/api/recipes?query=".concat(param)
+    url: "/api/recipes".concat(param)
   });
 };
 
