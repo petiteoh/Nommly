@@ -13,7 +13,6 @@ export const fetchRecipe = (recipeId) => {
 }
 
 export const fetchSearchRecipe = (query) => {
-    debugger
     return $.ajax({
         method: "GET",
         url: `/api/recipes/${query}`,
@@ -37,7 +36,6 @@ export const deleteNomFromRecipe = (recipeId) => {
 }
 
 export const fetchSearchRecipes = (param) => {
-    debugger
     return $.ajax({
         method: "GET",
         url: `/api/recipes${param}`,

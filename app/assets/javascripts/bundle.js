@@ -198,7 +198,6 @@ var fetchRecipes = function fetchRecipes() {
 };
 var fetchSearchRecipes = function fetchSearchRecipes(param) {
   return function (dispatch) {
-    debugger;
     return _util_recipe_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchSearchRecipes"](param).then(function (recipes) {
       return dispatch(receiveRecipes(recipes));
     });
@@ -3252,7 +3251,6 @@ var fetchRecipe = function fetchRecipe(recipeId) {
   });
 };
 var fetchSearchRecipe = function fetchSearchRecipe(query) {
-  debugger;
   return $.ajax({
     method: "GET",
     url: "/api/recipes/".concat(query)
@@ -3277,7 +3275,6 @@ var deleteNomFromRecipe = function deleteNomFromRecipe(recipeId) {
   });
 };
 var fetchSearchRecipes = function fetchSearchRecipes(param) {
-  debugger;
   return $.ajax({
     method: "GET",
     url: "/api/recipes".concat(param)

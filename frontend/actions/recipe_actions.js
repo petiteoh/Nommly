@@ -27,7 +27,6 @@ export const fetchRecipes = () => (dispatch) => {
 };
 
 export const fetchSearchRecipes = (param) => (dispatch) => {
-    debugger
     return APIUtil.fetchSearchRecipes(param).then((recipes) => {
         return dispatch(receiveRecipes(recipes))
     });
