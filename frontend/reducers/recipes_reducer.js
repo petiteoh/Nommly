@@ -7,7 +7,7 @@ const recipeReducer = (oldState = {}, action) => {
     let recipe;
     switch (action.type) {
         case RECEIVE_RECIPES:
-            return Object.assign({}, oldState, action.recipes);
+            return Object.assign({}, action.recipes);
         case RECEIVE_RECIPE:  
             recipe = action.payload.recipe;
             return Object.assign({}, oldState, { [recipe.id]: recipe });

@@ -1,13 +1,6 @@
 class Api::RecipesController < ApplicationController
     def index
-        # debugger
         if params[:query]
-            # @recipe = Recipe
-            # .select("recipe.title, recipe.course.pluck(:course), recipe.cuisine.pluck(:cuisine), recipe.ingredients.pluck(:ingredient)")
-        #     .where("recipe.title LIKE '%pesto%', recipe.course LIKE 'erica'")   
-        #         .select("recipe.title, recipe.course.pluck(:course), recipe.cuisine.pluck(:cuisine), recipe.ingredients.pluck(:ingredient)")
-        #         .where("recipe.title LIKE '%#params[:title]}%'")
-        #         ,"recipe.course LIKE ?", "recipe.cuisine LIKE ?", "recipe.ingredients LIKE ?" "%#{params[:query]}%")
             search_results = []
             recipes = Recipe.where("recipes.title ILIKE :query", query: "%#{params[:query]}%")
             search_results += recipes
@@ -22,14 +15,27 @@ class Api::RecipesController < ApplicationController
                 search_results += cuisine.recipes
             end
 
+            ingredients = Ingredient.where("ingredients.ingredient ILIKE :query", query: "%#{params[:query]}%")
+            ingredients.each do |ingredient|
+                search_results += ingredient.recipes
+            end
+
             @recipes = search_results.uniq
-        else
+            
+        # elsif current_user.disliked_ingredients.length > 0
+        #     dislikes = Recipe.joins(:ingredients).where("ingredients.ingredient ILIKE :query", query: "%#{params[:query]}")
+        #     # need to replace the query to actual user dislikes
+        #     debugger
+        #     @recipes = Recipe.where.not(id: dislikes)
+        #     # @recipes = Recipe.all
+
+        else 
             @recipes = Recipe.all
         end
         render :index
     end
 
-    def show 
+    def show
         @recipe = Recipe.find(params[:id])
         render :show
     end

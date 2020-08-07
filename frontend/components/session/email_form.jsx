@@ -91,9 +91,9 @@ class EmailForm extends React.Component {
               {/* {this.renderErrors()} */}
               <label className="email-form-label">
                 <input
+                  className="email-form-input"
                   autoCapitalize="off"
                   placeholder="Email Address"
-                  className="email-form-input"
                   type="text"
                   value={this.state.email}
                   onChange={this.update("email")}

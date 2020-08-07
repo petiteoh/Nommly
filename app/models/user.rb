@@ -25,7 +25,22 @@ class User < ApplicationRecord
         through: :noms,
         source: :recipe
 
-    has_many :user_preferences, as: :preferable
+    has_many :user_preferences
+
+    has_many :disliked_ingredients,
+        through: :user_preferences,
+        source: :preferable,
+        source_type: "Ingredient"
+
+    has_many :prefered_cuisines,
+        through: :user_preferences,
+        source: :preferable,
+        source_type: "Cuisine"
+
+    has_many :prefered_courses,
+        through: :user_preferences,
+        source: :preferable,
+        source_type: "Course"
 
     attr_reader :password
 

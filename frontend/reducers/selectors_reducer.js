@@ -11,3 +11,5 @@ export const selectRecipeIngredient = (state, id) => {
 export const selectNommedRecipes = (state, nommedRecipeIds) => {
   return nommedRecipeIds ? nommedRecipeIds.map(nommedRecipeId => state.entities.recipes[nommedRecipeId]) : [];
 } 
+
+export const selectIngredients = state => Object.values(state.entities.ingredients)

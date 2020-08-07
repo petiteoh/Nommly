@@ -15,6 +15,10 @@ RecipeIngredient.destroy_all
 Nom.destroy_all
 
 demoUser = User.create(email: "demo@demo.com", password: 11111111, display_name: "Demo User")
+u1 = User.create(email: "user1@user1.com", password: 11111111, display_name: "User 1")
+u2 = User.create(email: "user2@user2.com", password: 11111111, display_name: "User 2")
+u3 = User.create(email: "user3@user3.com", password: 11111111, display_name: "User 3")
+u4 = User.create(email: "user4@user4.com", password: 11111111, display_name: "User 4")
 
 cuisine1 = Cuisine.create!(cuisine: "American")
 cuisine2 = Cuisine.create(cuisine: "Malaysian")
@@ -27,6 +31,7 @@ course2 = Course.create(course: "Appetizer")
 course3 = Course.create(course: "Salad")
 course4 = Course.create(course: "Main")
 course5 = Course.create(course: "Dessert")
+course6 = Course.create(course: "Drink")
 
 r1 = Recipe.create!(
     creator: "NOMMLY",
@@ -148,6 +153,78 @@ r10 = Recipe.create(
     course_id: course4.id
 )
 
+r11 = Recipe.create(
+    creator: "NOMMLY",
+    title: "Cake Batter Milkshakes {3 Ingredient Recipe}",
+    description: "This Birthday Cake Milkshake Recipe uses just three ingredients and comes together in under 5 minutes. This is the best homemade milkshake I’ve ever made!",
+    calories: 552,
+    total_time: 5,
+    image_url: "https://www.cookingclassy.com/wp-content/uploads/2013/07/cake-batter-milkshake2+srgb.1.jpg",
+    directions: "https://www.cookingclassy.com/cake-batter-milkshakes-3-ingredient-recipe/",
+    cuisine_id: cuisine1.id,
+    course_id: course6.id
+)
+
+r12 = Recipe.create(
+    creator: "NOMMLY",
+    title: "Biryani",
+    description: "Biryani is a celebration of all that is great about Indian food – the heady aromas, the vibrant colours, the fluffy rice and those addictive curry flavours. Make this Chicken Biryani with your protein of choice – or try a vegetable biryani!",
+    calories: 552,
+    total_time: 80,
+    image_url: "https://www.recipetineats.com/wp-content/uploads/2018/08/Chicken-Biryani_1-1.jpg",
+    directions: "https://www.recipetineats.com/biryani/",
+    cuisine_id: cuisine3.id,
+    course_id: course4.id
+)
+
+r13 = Recipe.create(
+    creator: "NOMMLY",
+    title: "Grilled Mexican Street Corn (Elote) Recipe",
+    description: "Mexican street corn is a staple of summer and it's easy to make at home! Top char-grilled corn on the cob with a tangy, creamy sauce, sprinkle with crumbled cheese and dive in. Make this for your next backyard cook-out!",
+    calories: 240,
+    total_time: 20,
+    image_url: "https://www.simplyrecipes.com/wp-content/uploads/2016/07/2016-07-29-Street-Corn-1.jpg",
+    directions: "https://www.simplyrecipes.com/recipes/grilled_mexican_street_corn_elotes/",
+    cuisine_id: cuisine4.id,
+    course_id: course2.id
+)
+
+r14 = Recipe.create(
+    creator: "NOMMLY",
+    title: "Teh Tarik Recipe – Malaysian Pulled Tea",
+    description: "This Southeast Asian sweet drink, locally known as teh tarik or “pulled tea”, is a blast to make in the kitchen (or out on the back lawn where it’s safe). Test your pouring skills to the max for the perfect froth on top of this addictive bitter sweet teh tarik recipe.",
+    calories: 64,
+    total_time: 10,
+    image_url: "https://www.wandercooks.com/wp-content/uploads/2016/03/malaysian-teh-tarik-16.jpg",
+    directions: "https://www.wandercooks.com/ridiculously-fun-malaysian-teh-tarik/",
+    cuisine_id: cuisine2.id,
+    course_id: course6.id
+    )
+    
+r15 = Recipe.create(
+        creator: "NOMMLY",
+        title: "Best Key Lime Pie",
+        description: "The Best Key Lime Pie recipe EVER! Tart and sweet and incredibly easy, this Key Lime Pie is sure to be a family favorite! A delicious graham cracker crust filled to the brim with an incredibly creamy filling that is just so quick to make! You won’t be able to stop at just one slice! ",
+        calories: 517,
+        total_time: 27,
+        image_url: "https://www.momontimeout.com/wp-content/uploads/2015/03/best-key-lime-pie.jpg",
+        directions: "https://www.momontimeout.com/best-key-lime-pie-recipe/",
+        cuisine_id: cuisine1.id,
+        course_id: course5.id
+)
+
+r16 = Recipe.create(
+    creator: "NOMMLY",
+    title: "Classic Minestrone Soup",
+    description: "Finally! It’s about time this blog offered a traditional minestrone soup recipe. Minestrone is a hearty Italian vegetable soup made with tomato-y broth and pasta or rice. I’ve been working hard on this recipe and I’m so excited to share it with you.",
+    calories: 199,
+    total_time: 65,
+    image_url: "https://cookieandkate.com/images/2018/01/vegetarian-minestrone-soup-recipe.jpg",
+    directions: "https://cookieandkate.com/classic-minestrone-soup-recipe/",
+    cuisine_id: cuisine5.id,
+    course_id: course1.id
+)
+
 # pretzel recipe ingredients
 i1 = Ingredient.create!(ingredient: "1 and 1/2 cups (360ml) warm water (lukewarm, no need to take temperature)")
 i2 = Ingredient.create(ingredient: "1 packet active dry or instant yeast (2 and 1/4 teaspoons)")
@@ -161,6 +238,60 @@ i7 = Ingredient.create(ingredient: "coarse sea salt, for sprinkling")
 i8 = Ingredient.create(ingredient: "2 cloves Garlic, raw")
 i9 = Ingredient.create(ingredient: "⅓ cup Basil, fresh")
 
+# milkshake recipe ingredients
+i10 = Ingredient.create(ingredient: "2 cups vanilla ice cream")
+i11 = Ingredient.create(ingredient: "1 cup milk")
+i12 = Ingredient.create(ingredient: "1/2 cup vanilla or funfetti dry cake mix (from a boxed cake mix, I used Betty Crocker white), heat treat to kill potentially harmful bacteria")
+i13 = Ingredient.create(ingredient: "Sprinkles (optional)")
+
+# biryani
+i14 = Ingredient.create(ingredient: "2 tsp garam marsala")
+i15 = Ingredient.create(ingredient: "2 medium onions (yellow, brown)")
+i16 = Ingredient.create(ingredient: "1 cup (250 ml) oil")
+i17 = Ingredient.create(ingredient: "2 1/4 cups (450g) uncooked basmati rice")
+i18 = Ingredient.create(ingredient: "2/3 cup (150 ml) yoghurt")
+#i3 = Ingredient.create(ingredient: "1 teaspoon salt")
+
+# bubur chacha
+#i3 = Ingredient.create(ingredient: "1 teaspoon salt")
+i19 = Ingredient.create(ingredient: "250 g coconut milk")
+i20 = Ingredient.create(ingredient: "40g sago")
+i21 = Ingredient.create(ingredient: "140g sweet potatoes")
+i22 = Ingredient.create(ingredient: "3 tbs pandan leaves")
+i23 = Ingredient.create(ingredient: "140g taro")
+
+# elote
+i24 = Ingredient.create(ingredient: "6 to 8 medium ears sweet corn, husks removed")
+# i8 = Ingredient.create(ingredient: "2 cloves Garlic, raw")
+#i3 = Ingredient.create(ingredient: "1 teaspoon salt")
+i25 = Ingredient.create(ingredient: "2 tablespoon lime juice, from one lime")
+i26 = Ingredient.create(ingredient: "1/4 teaspoon ground chipotle pepper, to taste")
+
+# teh tarik
+i27 = Ingredient.create(ingredient: "250 ml boiling water")
+i28 = Ingredient.create(ingredient: "2 black tea bags")
+i29 = Ingredient.create(ingredient: "2 tbsp condensed milk")
+i30 = Ingredient.create(ingredient: "Ice optional")
+
+# keylime pie
+# i29 = Ingredient.create(ingredient: "2 tbsp condensed milk")
+# i4 = Ingredient.create(ingredient: "1 Tablespoon (8g) granulated sugar")
+# i25 = Ingredient.create(ingredient: "2 tablespoon lime juice, from one lime")
+i31 = Ingredient.create(ingredient: "6 tbsp butter melted")
+i32 = Ingredient.create(ingredient: "1 cup heavy whipping cream")
+i33 = Ingredient.create(ingredient: "1 tsp vanilla extract")
+
+# minestrone soup
+# i27 = Ingredient.create(ingredient: "250 ml boiling water")
+# i3 = Ingredient.create(ingredient: "1 teaspoon salt")
+# i8 = Ingredient.create(ingredient: "2 cloves Garlic, raw")
+# i15 = Ingredient.create(ingredient: "2 medium onions (yellow, brown)")
+i34 = Ingredient.create(ingredient: "1 cup whole grain orecchiette, elbow or small shell pasta")
+i35 = Ingredient.create(ingredient: "2 medium carrots, peeled and chopped")
+i36 = Ingredient.create(ingredient: "2 medium ribs celery, chopped")
+i37 = Ingredient.create(ingredient: "1 large can (28 ounces) diced tomatoes, with their liquid (or 2 small 15-ounce cans)")
+
+
 ri1 = RecipeIngredient.create!(recipe_id: r1.id, ingredient_id: i1.id)
 ri2 = RecipeIngredient.create(recipe_id: r1.id, ingredient_id: i2.id)
 ri3 = RecipeIngredient.create(recipe_id: r1.id, ingredient_id: i3.id)
@@ -172,6 +303,7 @@ ri7 = RecipeIngredient.create(recipe_id: r1.id, ingredient_id: i7.id)
 ri8 = RecipeIngredient.create(recipe_id: r2.id, ingredient_id: i3.id)
 
 ri9 = RecipeIngredient.create(recipe_id: r3.id, ingredient_id: i3.id)
+r24 = RecipeIngredient.create(recipe_id: r3.id, ingredient_id: i11.id)
 
 ri10 = RecipeIngredient.create(recipe_id: r4.id, ingredient_id: i3.id)
 
@@ -180,20 +312,72 @@ ri11 = RecipeIngredient.create(recipe_id: r5.id, ingredient_id: i3.id)
 ri12 = RecipeIngredient.create(recipe_id: r6.id, ingredient_id: i3.id)
 ri13 = RecipeIngredient.create(recipe_id: r6.id, ingredient_id: i8.id)
 ri14 = RecipeIngredient.create(recipe_id: r6.id, ingredient_id: i9.id)
+ri15 = RecipeIngredient.create(recipe_id: r6.id, ingredient_id: i9.id)
 
-ri15 = RecipeIngredient.create(recipe_id: r7.id, ingredient_id: i3.id)
+ri16 = RecipeIngredient.create(recipe_id: r7.id, ingredient_id: i3.id)
 
-ri16 = RecipeIngredient.create(recipe_id: r8.id, ingredient_id: i3.id)
+ri17 = RecipeIngredient.create(recipe_id: r8.id, ingredient_id: i3.id)
 
-ri17 = RecipeIngredient.create(recipe_id: r9.id, ingredient_id: i3.id)
+ri18 = RecipeIngredient.create(recipe_id: r9.id, ingredient_id: i3.id)
 
-ri18 = RecipeIngredient.create(recipe_id: r10.id, ingredient_id: i3.id)
-ri19 = RecipeIngredient.create(recipe_id: r6.id, ingredient_id: i9.id)
+ri19 = RecipeIngredient.create(recipe_id: r10.id, ingredient_id: i3.id)
+
+ri20 = RecipeIngredient.create(recipe_id: r11.id, ingredient_id: i10.id)
+ri21 = RecipeIngredient.create(recipe_id: r11.id, ingredient_id: i11.id)
+ri22 = RecipeIngredient.create(recipe_id: r11.id, ingredient_id: i12.id)
+ri23 = RecipeIngredient.create(recipe_id: r11.id, ingredient_id: i13.id)
+
+ri24 = RecipeIngredient.create(recipe_id: r12.id, ingredient_id: i1.id)
+ri25 = RecipeIngredient.create(recipe_id: r12.id, ingredient_id: i13.id)
+ri26 = RecipeIngredient.create(recipe_id: r12.id, ingredient_id: i14.id)
+ri27 = RecipeIngredient.create(recipe_id: r12.id, ingredient_id: i15.id)
+ri28 = RecipeIngredient.create(recipe_id: r12.id, ingredient_id: i16.id)
+ri29 = RecipeIngredient.create(recipe_id: r12.id, ingredient_id: i17.id)
+ri30 = RecipeIngredient.create(recipe_id: r12.id, ingredient_id: i18.id)
+
+ri31 = RecipeIngredient.create(recipe_id: r8.id, ingredient_id: i3.id)
+ri32 = RecipeIngredient.create(recipe_id: r8.id, ingredient_id: i19.id)
+ri33 = RecipeIngredient.create(recipe_id: r8.id, ingredient_id: i20.id)
+ri34 = RecipeIngredient.create(recipe_id: r8.id, ingredient_id: i21.id)
+ri35 = RecipeIngredient.create(recipe_id: r8.id, ingredient_id: i22.id)
+ri36 = RecipeIngredient.create(recipe_id: r8.id, ingredient_id: i23.id)
+
+ri37 = RecipeIngredient.create(recipe_id: r13.id, ingredient_id: i3.id)
+ri38 = RecipeIngredient.create(recipe_id: r13.id, ingredient_id: i8.id)
+ri39 = RecipeIngredient.create(recipe_id: r13.id, ingredient_id: i24.id)
+ri40 = RecipeIngredient.create(recipe_id: r13.id, ingredient_id: i25.id)
+ri41 = RecipeIngredient.create(recipe_id: r13.id, ingredient_id: i26.id)
+
+ri42 = RecipeIngredient.create(recipe_id: r14.id, ingredient_id: i27.id)
+ri43 = RecipeIngredient.create(recipe_id: r14.id, ingredient_id: i28.id)
+ri44 = RecipeIngredient.create(recipe_id: r14.id, ingredient_id: i29.id)
+ri45 = RecipeIngredient.create(recipe_id: r14.id, ingredient_id: i30.id)
+
+ri46 = RecipeIngredient.create(recipe_id: r15.id, ingredient_id: i4.id)
+ri47 = RecipeIngredient.create(recipe_id: r15.id, ingredient_id: i24.id)
+ri48 = RecipeIngredient.create(recipe_id: r15.id, ingredient_id: i29.id)
+ri49 = RecipeIngredient.create(recipe_id: r15.id, ingredient_id: i31.id)
+ri50 = RecipeIngredient.create(recipe_id: r15.id, ingredient_id: i32.id)
+ri51 = RecipeIngredient.create(recipe_id: r15.id, ingredient_id: i33.id)
+
+ri52 = RecipeIngredient.create(recipe_id: r16.id, ingredient_id: i3.id)
+ri53 = RecipeIngredient.create(recipe_id: r16.id, ingredient_id: i8.id)
+ri54 = RecipeIngredient.create(recipe_id: r16.id, ingredient_id: i15.id)
+ri55 = RecipeIngredient.create(recipe_id: r16.id, ingredient_id: i27.id)
+ri56 = RecipeIngredient.create(recipe_id: r16.id, ingredient_id: i34.id)
+ri57 = RecipeIngredient.create(recipe_id: r16.id, ingredient_id: i35.id)
+ri58 = RecipeIngredient.create(recipe_id: r16.id, ingredient_id: i36.id)
+ri59 = RecipeIngredient.create(recipe_id: r16.id, ingredient_id: i37.id)
 
 n1 = Nom.create(user_id: demoUser.id, recipe_id: r4.id)
-n1 = Nom.create(user_id: demoUser.id, recipe_id: r5.id)
-n1 = Nom.create(user_id: demoUser.id, recipe_id: r8.id)
-
+n2 = Nom.create(user_id: u1.id, recipe_id: r4.id)
+n3 = Nom.create(user_id: u2.id, recipe_id: r4.id)
+n4 = Nom.create(user_id: u3.id, recipe_id: r4.id)
+n5 = Nom.create(user_id: u4.id, recipe_id: r8.id)
+n6 = Nom.create(user_id: u1.id, recipe_id: r8.id)
+n7 = Nom.create(user_id: demoUser.id, recipe_id: r16.id)
+n8 = Nom.create(user_id: demoUser.id, recipe_id: r15.id)
+n9 = Nom.create(user_id: demoUser.id, recipe_id: r12.id)
 
 
 

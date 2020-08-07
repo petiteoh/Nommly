@@ -1,0 +1,162 @@
+.profile-header-container {
+    padding-top: 150px;
+    /* display: flex; */
+    /* flex-direction: column; */
+    /* text-align: center; */
+    height: 140px;
+}
+
+.top-bar-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.profile-information-container {
+    text-align: left;
+    justify-content: space-between;
+}
+
+.left-profile-pic-container {
+
+}
+
+.left-profile-pic-container > i {
+    color: #e3e3e3;
+    cursor: pointer;
+}
+
+.right-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    padding-left: 40px;
+    width: 250px;
+
+}
+
+.display-name {
+    color: #4a4a4a;
+    font-size: 34px;
+    font-family: europa-boldregular, sans-serif;
+    font-weight: 700;
+}
+
+.bio-container {
+}
+
+.bio::placeholder {
+    font-size: 16px;
+}
+
+.bio {
+    font-family: europa-regularregular, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    border: none;
+    width: 100%;
+    outline: none;
+}
+
+.location-container {
+    color: #4a4a4a;
+}
+
+.location-container > input {
+
+}
+
+.city::placeholder {
+    font-size: 13px;
+}
+
+.city {
+    font-family: europa-regularregular, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    border: none;
+    outline: none;
+    width: 15%;
+}
+
+.state::placeholder {
+    font-size: 13px;
+}
+
+.state {
+    font-family: europa-regularregular, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    border: none;
+    outline: none;
+    width: 15%;
+}
+
+.country::placeholder {
+    font-size: 13px;
+}
+
+.country {
+    font-family: europa-regularregular, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    color: #4a4a4a;
+    border: none;
+    outline: none;
+}
+
+.bottom-bar-container {
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+
+.saved-recipes-link-container > a {
+    text-decoration: none;
+}
+
+.saved-recipes-link-container:hover {
+    border-bottom: 3px solid #3a9691;
+    color: #232323;
+    cursor: pointer;
+}
+.saved-recipes-link {
+    text-transform: uppercase;
+    color: #707070;
+    white-space: nowrap;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: europa-regularregular, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    line-height: 40px;
+    cursor: pointer;
+
+}
+
+.preferences-link-container > a {
+    text-decoration: none;
+}
+
+.preferences-link-container:hover {
+    border-bottom: 3px solid #3a9691;
+    color: #232323;
+    cursor: pointer;
+}
+.preferences-link {
+    text-transform: uppercase;
+    color: #707070;
+    white-space: nowrap;
+    text-decoration: none;
+    font-size: 14px;
+    font-family: europa-regularregular, sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    line-height: 40px;
+    cursor: pointer;
+}

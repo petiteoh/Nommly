@@ -13,4 +13,6 @@ class Cuisine < ApplicationRecord
     has_many :recipes
 
     has_many :user_preferences, as: :preferable
+
+
 end

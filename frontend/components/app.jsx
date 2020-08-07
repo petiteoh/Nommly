@@ -9,8 +9,10 @@ import RecipeIndexContainer from "./recipe/recipe_index_container";
 import RecipeShowContainer from "./recipe/recipe_show_container";
 import UserShowContainer from "./user/user_show_container";
 import SearchContainer from "./search/search_container";
-import SearchResultsContainer from "./search/search_results_container"
-import SplashSearchContainer from "./search/splash_search_container"
+import SearchResultsContainer from "./search/search_results_container";
+import SplashSearchContainer from "./search/splash_search_container";
+import ProfileHeaderContainer from "./profile_header/profile_header_container";
+// import UserPreferenceContainer from "./user_preference/user_preference_container";
 
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 
@@ -25,7 +27,9 @@ const App = () => (
     <Route path="/email" component={EmailFormContainer} />
     <AuthRoute path="/login-password" component={LoginPasswordFormContainer} />
     <AuthRoute path="/signup-password" component={SignupPasswordFormContainer} />
+    <ProtectedRoute path="/profile" component={ProfileHeaderContainer} />
     <ProtectedRoute path="/profile" component={UserShowContainer} />
+    {/* <Route path="/user-preferences" component={UserPreferenceContainer} /> */}
   </div>
 );
 

@@ -5,9 +5,12 @@ Rails.application.routes.draw do
     get "/user", to: "users#show"
     resource :session, only: [:create, :destroy, :show]
     resources :recipes, only: [:index, :show ]
+    resources :ingredients, only: [:index]
     resources :courses, only: [:show]
     resources :noms, only: [:create]
     delete "/noms", to: "noms#destroy"
+    resources :user_preferences, only: [:create]
+    delete "/user_preferences", to: "user_preferences#destroy"
     # resources :
   end
 

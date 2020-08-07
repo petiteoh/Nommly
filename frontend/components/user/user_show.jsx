@@ -2,27 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 class UserShow extends React.Component {
-    constructor(props) {
-        super(props)
-        // this.state = this.props.nommedRecipes;
-    }
-
     componentDidMount() {
         this.props.fetchRecipes();
     }
-
-    componentDidUpdate(prevProps)  {
-        // if ( this.props.nommedRecipes !== prevProps.props.nommedRecipes ) {
-        //     this.setState(this.props.nommedRecipes)
-        // };
-    };
 
     render() {
         const { unNomRecipe, nommedRecipes, currentUser } = this.props;
         if (nommedRecipes.length === 0) return null;
         const nommedRecipesLis = nommedRecipes.map((nommedRecipe) => {
-            
-
             return (
                 <ul key={nommedRecipe.id} className="recipe-index-recipe-container">
                     <Link to={`/recipes/${nommedRecipe.id}`} >

@@ -154,5 +154,6 @@
     font-size: 20px;
     font-family: europa-regularregular, sans-serif;
     text-transform: capitalize;
+    cursor: pointer;
 }
 

@@ -39,7 +39,7 @@ class Nav extends React.Component {
 
   render() {
     const { currentUser, currentUserId, login, logout } = this.props;
-    if (currentUserId === 23) {
+    if (currentUserId === 27) {
     return (
       <section className="whole-nav-section">
         <section id="nav-bar-container">

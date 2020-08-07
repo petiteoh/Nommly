@@ -6,7 +6,7 @@ export const RECEIVE_NOM = "RECEIVE_NOM";
 
 const receiveRecipes = (recipes) => ({
     type: RECEIVE_RECIPES,
-    recipes
+    recipes,
 });
 
 const receiveRecipe = (payload) => ({

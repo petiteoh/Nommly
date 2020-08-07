@@ -6,7 +6,6 @@ import UserShow from "./user_show"
 const mSTP = (state) => {
     // const nommedRecipes = state.entities.users[state.session.id].nommedRecipeIds.map((recipeId) => {
     //     return state.entities.recipes[recipeId] });
-    debugger
     let nommedRecipes;
     if (Object.keys(state.entities.recipes).length === 0) {
         return {

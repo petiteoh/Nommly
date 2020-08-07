@@ -11,4 +11,5 @@
 #
 class UserPreference < ApplicationRecord
     belongs_to :preferable, polymorphic: true
+    belongs_to :user, inverse_of: :user_preferences
 end
