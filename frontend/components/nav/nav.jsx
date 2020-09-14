@@ -50,9 +50,9 @@ class Nav extends React.Component {
               </div>
               <Link to="/">
                     <img
-                      className="yummly-icon"
-                      src="https://theme.zdassets.com/theme_assets/33710/aa8385e43b1db7d88a0f43b3ac30eb6f684c7326.png"
-                      alt="Yummly Icon"
+                      className="nommly-icon"
+                      src={window.nommlyLogo}
+                      alt="Nommly Icon"
                     />
               </Link>
             </div>
@@ -90,16 +90,19 @@ class Nav extends React.Component {
     return (
       <section className="whole-nav-section">
         <section className="nav-bar-container">
-        <nav className="navbar">
+          <nav className="navbar">
             <div className="left-icons">
-              <div className="bar-icon-container" onMouseDown={this.handleMouseDown}>
+              <div
+                className="bar-icon-container"
+                onMouseDown={this.handleMouseDown}
+              >
                 <i className="fas fa-bars" aria-hidden="true"></i>
               </div>
               <Link to="/">
                 <img
-                  className="yummly-icon"
-                  src="https://theme.zdassets.com/theme_assets/33710/aa8385e43b1db7d88a0f43b3ac30eb6f684c7326.png"
-                  alt="Yummly Icon"
+                  className="nommly-icon"
+                  src={window.nommlyLogo}
+                  alt="Nommly Icon"
                 />
               </Link>
             </div>
@@ -113,23 +116,27 @@ class Nav extends React.Component {
                 </Link>
               </div>
             </div>
-        </nav>
-        <div className="banner-container">
-          <span className="banner-msg-container">
-            <p className="banner-msg">Welcome to Nommly!</p>
-            <p className="banner-msg-sml">
-              You are logged in as yourself! Browse around to discover our cool
-              features!
-            </p>
-          </span>
+          </nav>
+          <div className="banner-container">
+            <span className="banner-msg-container">
+              <p className="banner-msg">Welcome to Nommly!</p>
+              <p className="banner-msg-sml">
+                You are logged in as yourself! Browse around to discover our
+                cool features!
+              </p>
+            </span>
             {/* <a className="banner-logout-btn" onClick={this.handleSessionStatus("logout")}> */}
             <a className="banner-logout-btn" onClick={logout}>
-            Log Out
-          </a>
-        </div>
+              Log Out
+            </a>
+          </div>
         </section>
         <section className="side-nav">
-          <GreetingContainer toggleSidebar={this.toggleSidebar} handleMouseDown={this.handleMouseDown} sidebarVisibility={this.state.visible}/>
+          <GreetingContainer
+            toggleSidebar={this.toggleSidebar}
+            handleMouseDown={this.handleMouseDown}
+            sidebarVisibility={this.state.visible}
+          />
         </section>
       </section>
     );
@@ -139,14 +146,17 @@ class Nav extends React.Component {
         <section className="nav-bar-container">
           <nav className="navbar">
             <div className="left-icons">
-              <div className="bar-icon-container" onMouseDown={this.handleMouseDown}>
+              <div
+                className="bar-icon-container"
+                onMouseDown={this.handleMouseDown}
+              >
                 <i className="fas fa-bars" aria-hidden="true"></i>
               </div>
               <Link to="/">
                 <img
-                  className="yummly-icon"
-                  src="https://theme.zdassets.com/theme_assets/33710/aa8385e43b1db7d88a0f43b3ac30eb6f684c7326.png"
-                  alt="Yummly Icon"
+                  className="nommly-icon"
+                  src={window.nommlyLogo}
+                  alt="Nommly Icon"
                 />
               </Link>
             </div>
@@ -173,7 +183,11 @@ class Nav extends React.Component {
           </div>
         </section>
         <section className="side-nav">
-          <GreetingContainer toggleSidebar={this.toggleSidebar} handleMouseDown={this.handleMouseDown} sidebarVisibility={this.state.visible}/>
+          <GreetingContainer
+            toggleSidebar={this.toggleSidebar}
+            handleMouseDown={this.handleMouseDown}
+            sidebarVisibility={this.state.visible}
+          />
         </section>
       </section>
     );
