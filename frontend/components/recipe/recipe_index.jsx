@@ -26,7 +26,7 @@ class RecipeIndex extends React.Component {
                     <li className="nom-button-wrapper">
                         <button className="nom-block-button" onClick={() => nomRecipe(recipe.id)}>
                             <div className="nom-icon-container">
-                                <img className="nom-icon" src="https://theyumyumclub.com/wp-content/uploads/2019/01/Yummly-Button-2.png" alt="Yum Button" />
+                                <img className="nom-icon" src={window.nomIcon} alt="Num Button" />
                             </div>
                             <br></br>
                             <p className="nom-counter" >{recipe.noms}</p>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Nommly</title>
+    <title>Nommly | Personalized Recipe Recommendations and Search</title>
     <link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
 
     <%= csrf_meta_tags %>
@@ -9,8 +9,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <%= favicon_link_tag asset_path('n-icon.png') %>
     <meta property="og:title" content="Nommly" />
-    <meta property='og:image' content="<%= image_url('') %>"/>
+    <meta property='og:image' content="<%= image_url('splash.jpg') %>"/>
     <meta property="og:description"
        content="​a Yummly clone built with Rails PostgreSQL and React / Redux" 
     />
@@ -22,9 +23,11 @@
       window.nommedIcon = "<%= image_url('nommed.png') %>";
     </script>
     <script type="text/javascript">
+      window.nomIcon = "<%= image_url('nom.png') %>";
+    </script>
+    <script type="text/javascript">
       window.nommlyLogo = "<%= image_url('nommly-Logo-2020.png') %>";
     </script>
-
   </head>
 
   <body>
