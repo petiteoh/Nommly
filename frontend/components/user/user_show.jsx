@@ -27,7 +27,6 @@ class UserShow extends React.Component {
                             <button className="nom-block-button" onClick={() => unNomRecipe(nommedRecipe.id)}>
                                 <div className="nom-icon-container">
                                     <img className="nom-icon" src={window.nommedIcon} alt="Nom Button" />
-                                    {/* <img className="nom-icon" src="https://theyumyumclub.com/wp-content/uploads/2019/01/Yummly-Button-2.png" alt="Yum Button" /> */}
                                 </div>
                                 <br></br>
                                 <p className="nom-counter" >{nommedRecipe.noms}</p>

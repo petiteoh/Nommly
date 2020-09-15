@@ -1664,8 +1664,8 @@ var SearchResults = /*#__PURE__*/function (_React$Component) {
           className: "nom-icon-container"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           className: "nom-icon",
-          src: "https://theyumyumclub.com/wp-content/uploads/2019/01/Yummly-Button-2.png",
-          alt: "Yum Button"
+          src: window.nomIcon,
+          alt: "Nom Button"
         })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
           className: "nom-counter"
         }, recipe.noms)))));
