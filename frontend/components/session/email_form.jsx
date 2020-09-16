@@ -3,7 +3,7 @@ import React from "react";
 class EmailForm extends React.Component {
     constructor(props) {
         super(props)
-
+        debugger
         this.state = { email: "", errors: "" }
         this.handleSubmit = this.handleSubmit.bind(this);
     };
@@ -16,10 +16,18 @@ class EmailForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        // if (this.state.email) {
+
+        // }
 
         if (this.isValidEmail(this.state.email)) {
+          debugger
           this.props.fetchUserByEmail(this.state.email).then((response) => {
-              this.props.history.push("/login-password")
+            // this.props.
+            debugger // Check the response, then we are going have to switch components the regular way. We have to make sure that that email is coming back from the backend on the success, and it's getting put in the reducer cuz it's not.
+            // Let 
+            console.log("haha I just skipped you")  
+            this.props.history.push("/login-password")
           }, (err) => {
               console.log(err.responseJSON)
               this.props.history.push("/signup-password")
@@ -86,9 +94,7 @@ class EmailForm extends React.Component {
               We're rated 4.5 out of 5 stars because our users have so much
               success finding recipes they love.
             </h3>
-            {/* <h1 className="connect">Connect with Email</h1> */}
             <form className="email-form" onSubmit={this.handleSubmit}>
-              {/* {this.renderErrors()} */}
               <label className="email-form-label">
                 <input
                   className="email-form-input"
@@ -98,7 +104,6 @@ class EmailForm extends React.Component {
                   value={this.state.email}
                   onChange={this.update("email")}
                 />
-                {/* <p className="email-form-errors">{this.state.errors}</p> */}
               </label>
               {errorMessage}
               <button className="email-form-button" type="submit">

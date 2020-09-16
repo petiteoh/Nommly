@@ -282,6 +282,7 @@ var receiveErrors = function receiveErrors(errors) {
 };
 
 var receiveUserByEmail = function receiveUserByEmail(userEmail) {
+  debugger;
   return {
     type: RECEIVE_USER_BY_EMAIL,
     userEmail: userEmail
@@ -315,8 +316,10 @@ var logout = function logout() {
 };
 var fetchUserByEmail = function fetchUserByEmail(userEmail) {
   return function (dispatch) {
-    return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchUserByEmail"](userEmail).then(function (user) {
-      return dispatch(receiveUserByEmail(user.email));
+    return _util_session_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchUserByEmail"](userEmail).then(function (response) {
+      // Line below. The response from the backend was double because we also called the response placeholder variable user. So it made a confusion 
+      // Double nested and needed to key into the user
+      return dispatch(receiveUserByEmail(response.user.email));
     }, function (response) {
       return dispatch(receiveUserByEmail(response.responseJSON.email));
     });
@@ -1980,6 +1983,7 @@ var EmailForm = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, EmailForm);
 
     _this = _super.call(this, props);
+    debugger;
     _this.state = {
       email: "",
       errors: ""
@@ -2002,10 +2006,18 @@ var EmailForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       var _this3 = this;
 
-      e.preventDefault();
+      e.preventDefault(); // if (this.state.email) {
+      // }
 
       if (this.isValidEmail(this.state.email)) {
+        debugger;
         this.props.fetchUserByEmail(this.state.email).then(function (response) {
+          // this.props.
+          debugger; // Check the response, then we are going have to switch components the regular way. We have to make sure that that email is coming back from the backend on the success, and it's getting put in the reducer cuz it's not.
+          // Let 
+
+          console.log("haha I just skipped you");
+
           _this3.props.history.push("/login-password");
         }, function (err) {
           console.log(err.responseJSON);
@@ -2194,6 +2206,7 @@ var LoginPasswordForm = /*#__PURE__*/function (_React$Component) {
       errors: ""
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    debugger;
     return _this;
   }
 
@@ -2212,8 +2225,10 @@ var LoginPasswordForm = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       e.preventDefault();
+      debugger;
 
       if (this.isValidPassword(this.state.password)) {
+        debugger;
         this.props.login(this.state).then(function (response) {
           _this3.props.history.push("/");
         }, function (err) {
@@ -2221,7 +2236,7 @@ var LoginPasswordForm = /*#__PURE__*/function (_React$Component) {
         });
       } else {
         this.setState({
-          errors: "PASSWORD MUST BE 8 OR MORE CHARACTERS."
+          errors: "INVALID EMAIL AND / OR PASSWORD COMBINATION"
         });
       }
     }
@@ -2290,8 +2305,8 @@ var LoginPasswordForm = /*#__PURE__*/function (_React$Component) {
         placeholder: "Password",
         type: "password",
         className: "login-password-input",
-        value: this.state.password,
-        onChange: this.update("password")
+        onChange: this.update("password"),
+        value: this.state.password
       })), errorMessage, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "login-password-button",
         type: "submit"
@@ -2329,6 +2344,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
+  debugger;
   return {
     email: state.session.email,
     errors: state.errors.session,
@@ -3088,6 +3104,7 @@ var sessionReducer = function sessionReducer() {
   var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _nullUser;
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(oldState);
+  debugger;
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:

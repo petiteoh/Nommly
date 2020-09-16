@@ -31,10 +31,13 @@ const receiveErrors = (errors) => ({
     errors,
 });
 
-const receiveUserByEmail = (userEmail) => ({
-    type: RECEIVE_USER_BY_EMAIL,
-    userEmail,
-})
+const receiveUserByEmail = (userEmail) => {
+    debugger
+    return {
+        type: RECEIVE_USER_BY_EMAIL,
+        userEmail
+    }
+};
 
 export const login = (user) => (dispatch) => {
     return APIUtil.login(user).then((payload) => {
@@ -57,8 +60,10 @@ export const logout = () => (dispatch) =>
 );
 
 export const fetchUserByEmail = (userEmail) => (dispatch) => {
-    return APIUtil.fetchUserByEmail(userEmail).then((user) => {
-        return dispatch(receiveUserByEmail(user.email)
+    return APIUtil.fetchUserByEmail(userEmail).then((response) => {
+        // Line below. The response from the backend was double because we also called the response placeholder variable user. So it made a confusion 
+        // Double nested and needed to key into the user
+        return dispatch(receiveUserByEmail(response.user.email)
     )}, (response) => {
         return dispatch(receiveUserByEmail(response.responseJSON.email));
     });

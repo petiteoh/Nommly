@@ -6,6 +6,7 @@ class LoginPasswordForm extends React.Component {
 
         this.state = { email: this.props.email, password: "", errors: "" };
         this.handleSubmit = this.handleSubmit.bind(this);
+        debugger
     };
 
     update(field) {
@@ -16,15 +17,16 @@ class LoginPasswordForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-
+        debugger
         if (this.isValidPassword(this.state.password)) {
+          debugger
           this.props.login(this.state).then((response) => {
               this.props.history.push("/")
           }, (err) => {
               console.log(err.responseJSON)
           });
         } else {
-          this.setState({ errors: "PASSWORD MUST BE 8 OR MORE CHARACTERS." });
+          this.setState({ errors: "INVALID EMAIL AND / OR PASSWORD COMBINATION" });
         }
     };
 
@@ -91,8 +93,8 @@ class LoginPasswordForm extends React.Component {
                   placeholder="Password"
                   type="password"
                   className="login-password-input"
-                  value={this.state.password}
                   onChange={this.update("password")}
+                  value={this.state.password}
                   />
               </label>
               {/* {this.renderErrors()} */}
