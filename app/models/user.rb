@@ -41,6 +41,8 @@ class User < ApplicationRecord
         through: :user_preferences,
         source: :preferable,
         source_type: "Course"
+    
+    has_one_attached :photo
 
     attr_reader :password
 
