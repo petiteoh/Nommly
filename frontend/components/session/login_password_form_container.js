@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import LoginPasswordForm from "./login_password_form";
 
 const mSTP = (state) => {
-  debugger
+  // debugger
   return {
     email: state.session.email,
     errors: state.errors.session,

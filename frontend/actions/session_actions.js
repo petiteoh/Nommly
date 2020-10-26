@@ -32,7 +32,7 @@ const receiveErrors = (errors) => ({
 });
 
 const receiveUserByEmail = (userEmail) => {
-    debugger
+    // debugger
     return {
         type: RECEIVE_USER_BY_EMAIL,
         userEmail

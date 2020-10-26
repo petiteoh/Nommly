@@ -3,7 +3,7 @@ import React from "react";
 class EmailForm extends React.Component {
     constructor(props) {
         super(props)
-        debugger
+        // debugger
         this.state = { email: "", errors: "" }
         this.handleSubmit = this.handleSubmit.bind(this);
     };
@@ -21,10 +21,10 @@ class EmailForm extends React.Component {
         // }
 
         if (this.isValidEmail(this.state.email)) {
-          debugger
+          // debugger
           this.props.fetchUserByEmail(this.state.email).then((response) => {
             // this.props.
-            debugger // Check the response, then we are going have to switch components the regular way. We have to make sure that that email is coming back from the backend on the success, and it's getting put in the reducer cuz it's not.
+            // debugger // Check the response, then we are going have to switch components the regular way. We have to make sure that that email is coming back from the backend on the success, and it's getting put in the reducer cuz it's not.
             // Let 
             console.log("haha I just skipped you")  
             this.props.history.push("/login-password")

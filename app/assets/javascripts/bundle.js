@@ -282,7 +282,7 @@ var receiveErrors = function receiveErrors(errors) {
 };
 
 var receiveUserByEmail = function receiveUserByEmail(userEmail) {
-  debugger;
+  // debugger
   return {
     type: RECEIVE_USER_BY_EMAIL,
     userEmail: userEmail
@@ -1982,8 +1982,8 @@ var EmailForm = /*#__PURE__*/function (_React$Component) {
 
     _classCallCheck(this, EmailForm);
 
-    _this = _super.call(this, props);
-    debugger;
+    _this = _super.call(this, props); // debugger
+
     _this.state = {
       email: "",
       errors: ""
@@ -2010,12 +2010,11 @@ var EmailForm = /*#__PURE__*/function (_React$Component) {
       // }
 
       if (this.isValidEmail(this.state.email)) {
-        debugger;
+        // debugger
         this.props.fetchUserByEmail(this.state.email).then(function (response) {
           // this.props.
-          debugger; // Check the response, then we are going have to switch components the regular way. We have to make sure that that email is coming back from the backend on the success, and it's getting put in the reducer cuz it's not.
+          // debugger // Check the response, then we are going have to switch components the regular way. We have to make sure that that email is coming back from the backend on the success, and it's getting put in the reducer cuz it's not.
           // Let 
-
           console.log("haha I just skipped you");
 
           _this3.props.history.push("/login-password");
@@ -2205,8 +2204,8 @@ var LoginPasswordForm = /*#__PURE__*/function (_React$Component) {
       password: "",
       errors: ""
     };
-    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    debugger;
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this)); // debugger
+
     return _this;
   }
 
@@ -2224,11 +2223,10 @@ var LoginPasswordForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(e) {
       var _this3 = this;
 
-      e.preventDefault();
-      debugger;
+      e.preventDefault(); // debugger
 
       if (this.isValidPassword(this.state.password)) {
-        debugger;
+        // debugger
         this.props.login(this.state).then(function (response) {
           _this3.props.history.push("/");
         }, function (err) {
@@ -2344,7 +2342,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
-  debugger;
+  // debugger
   return {
     email: state.session.email,
     errors: state.errors.session,
@@ -3103,8 +3101,7 @@ var _nullUser = Object.freeze({
 var sessionReducer = function sessionReducer() {
   var oldState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _nullUser;
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(oldState);
-  debugger;
+  Object.freeze(oldState); // debugger
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:

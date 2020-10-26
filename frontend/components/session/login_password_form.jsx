@@ -6,7 +6,7 @@ class LoginPasswordForm extends React.Component {
 
         this.state = { email: this.props.email, password: "", errors: "" };
         this.handleSubmit = this.handleSubmit.bind(this);
-        debugger
+        // debugger
     };
 
     update(field) {
@@ -17,9 +17,9 @@ class LoginPasswordForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
+        // debugger
         if (this.isValidPassword(this.state.password)) {
-          debugger
+          // debugger
           this.props.login(this.state).then((response) => {
               this.props.history.push("/")
           }, (err) => {
